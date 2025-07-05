@@ -1,24 +1,110 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 20px 0;
 }
 
-@keyframes logo-spin {
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Animation for the main container */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom styles for Material-UI components */
+.MuiPaper-root {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.MuiTextField-root {
+  margin-bottom: 16px;
+}
+
+.MuiButton-root {
+  text-transform: none !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+}
+
+.MuiCard-root {
+  border-radius: 12px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.MuiAlert-root {
+  border-radius: 8px !important;
+}
+
+/* Custom styles for the URL input */
+.url-input .MuiOutlinedInput-root {
+  border-radius: 8px;
+}
+
+/* Custom styles for the result card */
+.result-card {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border: none !important;
+}
+
+/* Custom styles for analytics */
+.analytics-card {
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  body {
+    padding: 10px 0;
+  }
+  
+  .MuiContainer-root {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  
+  .MuiPaper-root {
+    padding: 24px 16px !important;
+  }
+}
+
+/* Loading animation */
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
   from {
     transform: rotate(0deg);
   }
@@ -27,16 +113,72 @@
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+/* Success animation */
+.success-pulse {
+  animation: pulse 0.6s ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 
-.card {
-  padding: 2em;
+/* Custom tooltip styles */
+.MuiTooltip-tooltip {
+  background-color: #333 !important;
+  color: white !important;
+  font-size: 12px !important;
+  padding: 8px 12px !important;
+  border-radius: 6px !important;
 }
 
-.read-the-docs {
-  color: #888;
+/* Custom icon button styles */
+.MuiIconButton-root {
+  transition: all 0.2s ease-in-out !important;
+}
+
+.MuiIconButton-root:hover {
+  transform: scale(1.1);
+  background-color: rgba(25, 118, 210, 0.1) !important;
+}
+
+/* Custom divider styles */
+.MuiDivider-root {
+  margin: 16px 0 !important;
+  background-color: #e0e0e0 !important;
+}
+
+/* Custom grid spacing */
+.MuiGrid-container {
+  margin-top: 0 !important;
+}
+
+/* Custom typography styles */
+.MuiTypography-h3 {
+  font-weight: 700 !important;
+  letter-spacing: -0.5px !important;
+}
+
+.MuiTypography-body1 {
+  line-height: 1.6 !important;
+}
+
+/* Custom alert styles */
+.MuiAlert-standardSuccess {
+  background-color: #e8f5e8 !important;
+  color: #2e7d32 !important;
+  border: 1px solid #a5d6a7 !important;
+}
+
+.MuiAlert-standardError {
+  background-color: #ffebee !important;
+  color: #c62828 !important;
+  border: 1px solid #ffcdd2 !important;
 }
