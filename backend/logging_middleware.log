@@ -36,3 +36,32 @@
 2025-07-05 11:34:43,016 - WARNING -  * Debugger is active!
 2025-07-05 11:34:43,027 - INFO -  * Debugger PIN: 629-455-228
 2025-07-05 11:35:06,349 - INFO -  * Detected change in 'C:\\Users\\tpgav\\OneDrive\\Desktop\\placement\\backend\\app.py', reloading
+2025-07-05 11:35:07,888 - INFO - Log API call - Status: 401, Time: 0.069s
+2025-07-05 11:35:07,889 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:35:07,916 - INFO - Log API call - Status: 401, Time: 0.026s
+2025-07-05 11:35:07,917 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:35:07,943 - INFO - Log API call - Status: 401, Time: 0.026s
+2025-07-05 11:35:07,944 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:35:07,973 - INFO - Log API call - Status: 401, Time: 0.027s
+2025-07-05 11:35:07,974 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:35:08,003 - INFO - Log API call - Status: 401, Time: 0.027s
+2025-07-05 11:35:08,004 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:35:08,034 - INFO - Log API call - Status: 401, Time: 0.029s
+2025-07-05 11:35:08,035 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:35:08,162 - WARNING -  * Debugger is active!
+2025-07-05 11:35:08,175 - INFO -  * Debugger PIN: 629-455-228
+2025-07-05 11:35:25,396 - INFO -  * Detected change in 'C:\\Users\\tpgav\\OneDrive\\Desktop\\placement\\backend\\app.py', reloading
+2025-07-05 11:35:27,192 - INFO - Log API call - Status: 401, Time: 0.063s
+2025-07-05 11:35:27,193 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:35:27,222 - INFO - Log API call - Status: 401, Time: 0.025s
+2025-07-05 11:35:27,223 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:35:27,251 - INFO - Log API call - Status: 401, Time: 0.026s
+2025-07-05 11:35:27,252 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:35:27,278 - INFO - Log API call - Status: 401, Time: 0.025s
+2025-07-05 11:35:27,279 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:35:27,306 - INFO - Log API call - Status: 401, Time: 0.025s
+2025-07-05 11:35:27,307 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:35:27,336 - INFO - Log API call - Status: 401, Time: 0.028s
+2025-07-05 11:35:27,337 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:35:27,475 - WARNING -  * Debugger is active!
+2025-07-05 11:35:27,490 - INFO -  * Debugger PIN: 629-455-228

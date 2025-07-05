@@ -289,6 +289,10 @@ def create_short_url():
 def redirect_to_original(shortcode):
     """Redirect to the original URL."""
     try:
+        log_info("backend", "handler", "URL redirect request received", 
+                shortcode=shortcode, method=request.method, ip=request.remote_addr,
+                user_agent=request.headers.get('User-Agent', 'Unknown'))
+        
         conn = sqlite3.connect('url_shortener.db')
         cursor = conn.cursor()
         cursor.execute('''
@@ -299,39 +303,60 @@ def redirect_to_original(shortcode):
         result = cursor.fetchone()
         
         if not result:
-            log_request("redirect", {"shortcode": shortcode, "error": "Shortcode not found"}, False, "Shortcode not found")
+            log_error("backend", "handler", "Shortcode not found in database", 
+                     shortcode=shortcode, ip=request.remote_addr)
             return jsonify({"error": "Shortcode not found"}), 404
         
         original_url, expires_at, is_active = result
         
+        log_debug("backend", "handler", "URL lookup successful", 
+                 shortcode=shortcode, original_url=original_url, 
+                 is_active=bool(is_active), expires_at=expires_at)
+        
         if not is_active:
-            log_request("redirect", {"shortcode": shortcode, "error": "Link is inactive"}, False, "Link is inactive")
+            log_warn("backend", "handler", "Attempted access to inactive link", 
+                    shortcode=shortcode, ip=request.remote_addr)
             return jsonify({"error": "Link is inactive"}), 410
         
         # Check if link has expired
-        if datetime.now() > datetime.fromisoformat(expires_at):
-            log_request("redirect", {"shortcode": shortcode, "error": "Link has expired"}, False, "Link expired")
+        current_time = datetime.now()
+        expiry_time = datetime.fromisoformat(expires_at)
+        is_expired = current_time > expiry_time
+        
+        if is_expired:
+            log_warn("backend", "handler", "Attempted access to expired link", 
+                    shortcode=shortcode, ip=request.remote_addr, 
+                    current_time=current_time.isoformat(), 
+                    expiry_time=expiry_time.isoformat())
             return jsonify({"error": "Link has expired"}), 410
         
         # Log analytics
-        cursor.execute('''
-            INSERT INTO analytics (shortcode, ip_address, user_agent)
-            VALUES (?, ?, ?)
-        ''', (shortcode, request.remote_addr, request.headers.get('User-Agent', '')))
+        try:
+            cursor.execute('''
+                INSERT INTO analytics (shortcode, ip_address, user_agent)
+                VALUES (?, ?, ?)
+            ''', (shortcode, request.remote_addr, request.headers.get('User-Agent', '')))
+            
+            conn.commit()
+            log_debug("backend", "db", "Analytics logged successfully", 
+                     shortcode=shortcode, ip=request.remote_addr)
+            
+        except Exception as analytics_error:
+            log_error("backend", "db", "Failed to log analytics", 
+                     shortcode=shortcode, error=str(analytics_error))
+            # Don't fail the redirect for analytics errors
         
-        conn.commit()
         conn.close()
         
-        log_request("redirect", {
-            "shortcode": shortcode,
-            "original_url": original_url,
-            "ip_address": request.remote_addr
-        }, True)
+        log_info("backend", "handler", "URL redirect successful", 
+                shortcode=shortcode, original_url=original_url, 
+                ip=request.remote_addr, redirect_code=302)
         
         return redirect(original_url, code=302)
         
     except Exception as e:
-        log_request("redirect", {"shortcode": shortcode, "error": str(e)}, False, str(e))
+        log_error("backend", "handler", "Unexpected error in URL redirect", 
+                 shortcode=shortcode, error=str(e), ip=request.remote_addr)
         return jsonify({"error": "Internal server error"}), 500
 
 @app.route('/analytics/<shortcode>', methods=['GET'])
