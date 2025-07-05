@@ -203,3 +203,21 @@
 2025-07-05 11:40:21,955 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
 2025-07-05 11:40:22,107 - WARNING -  * Debugger is active!
 2025-07-05 11:40:22,120 - INFO -  * Debugger PIN: 629-455-228
+2025-07-05 11:41:04,572 - INFO -  * Detected change in 'C:\\Users\\tpgav\\OneDrive\\Desktop\\placement\\logging_middleware\\logger.py', reloading
+2025-07-05 11:41:04,657 - INFO -  * Restarting with stat
+2025-07-05 11:41:05,602 - INFO - Log API call - Status: 401, Time: 0.064s
+2025-07-05 11:41:05,603 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:41:05,631 - INFO - Log API call - Status: 401, Time: 0.024s
+2025-07-05 11:41:05,632 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:41:05,658 - INFO - Log API call - Status: 401, Time: 0.025s
+2025-07-05 11:41:05,659 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:41:05,685 - INFO - Log API call - Status: 401, Time: 0.024s
+2025-07-05 11:41:05,686 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:41:05,711 - INFO - Log API call - Status: 401, Time: 0.024s
+2025-07-05 11:41:05,712 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:41:05,737 - INFO - Log API call - Status: 401, Time: 0.024s
+2025-07-05 11:41:05,737 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:41:05,830 - WARNING -  * Debugger is active!
+2025-07-05 11:41:05,842 - INFO -  * Debugger PIN: 629-455-228
+2025-07-05 11:42:46,912 - INFO -  * Detected change in 'C:\\Users\\tpgav\\OneDrive\\Desktop\\placement\\logging_middleware\\logger.py', reloading
+2025-07-05 11:42:47,038 - INFO -  * Restarting with stat

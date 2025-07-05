@@ -1,0 +1,6 @@
+2025-07-05 11:42:07,320 - ERROR - Invalid package 'test' for stack 'backend'. Valid packages: {'middleware', 'handler', 'service', 'cron_job', 'controller', 'db', 'config', 'cache', 'respoistory', 'auth', 'route', 'utils', 'domain'}
+2025-07-05 11:42:07,402 - INFO - Log API call - Status: 401, Time: 0.079s
+2025-07-05 11:42:07,404 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:42:07,436 - INFO - Log API call - Status: 401, Time: 0.030s
+2025-07-05 11:42:07,437 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:44:56,830 - ERROR - Invalid package 'test' for stack 'backend'. Valid packages: {'middleware', 'cron_job', 'utils', 'db', 'route', 'cache', 'config', 'service', 'domain', 'auth', 'handler', 'respoistory', 'controller'}

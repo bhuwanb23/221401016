@@ -1,6 +1,7 @@
 import requests
 import json
 import time
+import os
 from datetime import datetime
 from typing import Optional, Dict, Any
 import logging
@@ -14,12 +15,6 @@ class LoggingMiddleware:
     def __init__(self, api_url: str = "http://20.244.56.144/evaluation-service/logs"):
         self.api_url = api_url
         self.session = requests.Session()
-        
-        # Configure session headers
-        self.session.headers.update({
-            'Content-Type': 'application/json',
-            'User-Agent': 'LoggingMiddleware/1.0'
-        })
         
         # Valid values for validation
         self.valid_stacks = {"backend", "frontend"}
@@ -45,6 +40,37 @@ class LoggingMiddleware:
             ]
         )
         self.logger = logging.getLogger(__name__)
+        
+        # Load authorization token
+        self.auth_token = self._load_auth_token()
+        
+        # Configure session headers
+        self.session.headers.update({
+            'Content-Type': 'application/json',
+            'User-Agent': 'LoggingMiddleware/1.0',
+            'Authorization': f'Bearer {self.auth_token}'
+        })
+    
+    def _load_auth_token(self):
+        """Load authorization token from file or use default."""
+        try:
+            # Try to load from authorization file
+            auth_file_path = os.path.join(os.path.dirname(__file__), '..', 'register', 'client_auth.txt')
+            if os.path.exists(auth_file_path):
+                with open(auth_file_path, 'r') as f:
+                    content = f.read()
+                    # Extract token from the file content
+                    import re
+                    token_match = re.search(r'"access_token":\s*"([^"]+)"', content)
+                    if token_match:
+                        return token_match.group(1)
+            
+            # Fallback to hardcoded token
+            return "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJNYXBDbGFpbXMiOnsiYXVkIjoiaHR0cDovLzIwLjI0NC41Ni4xNDQvZXZhbHVhdGlvbi1zZXJ2aWNlIiwiZW1haWwiOiIyMjE0MDEwMTZAcmFqYWxha3NobWkuZWR1LmluIiwiZXhwIjoxNzUxNjkzOTE3LCJpYXQiOjE3NTE2OTMwMTcsImlzcyI6IkFmZm9yZCBNZWRpY2FsIFRlY2hub2xvZ2llcyBQcml2YXRlIExpbWl0ZWQiLCJqdGkiOiIxZDU4YmFlOC01NWM2LTQ4M2UtOTcwMy1lMDc1MWE5MmY2YzIiLCJsb2NhbGUiOiJlbi1JTiIsIm5hbWUiOiJiaHV3YW4gYiIsInN1YiI6ImZkNjNmNmI0LTkzNjYtNGVlZS1hMTk2LTM1OTFmNzE1MDkxOCJ9LCJlbWFpbCI6IjIyMTQwMTAxNkByYWphbGFrc2htaS5lZHUuaW4iLCJuYW1lIjoiYmh1d2FuIGIiLCJyb2xsTm8iOiIyMjE0MDEwMTYiLCJhY2Nlc3NDb2RlIjoiY1d5YVhXIiwiY2xpZW50SUQiOiJmZDYzZjZiNC05MzY2LTRlZWUtYTE5Ni0zNTkxZjcxNTA5MTgiLCJjbGllbnRTZWNyZXQiOiJRR05XWndyZXpFakRiWlFnIn0.Gb7oKr3iaABMhbn80I0HJkgMcrywbDgkovbi-awy6zQ"
+        except Exception as e:
+            print(f"Failed to load auth token: {e}")
+            # Return the hardcoded token as fallback
+            return "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJNYXBDbGFpbXMiOnsiYXVkIjoiaHR0cDovLzIwLjI0NC41Ni4xNDQvZXZhbHVhdGlvbi1zZXJ2aWNlIiwiZW1haWwiOiIyMjE0MDEwMTZAcmFqYWxha3NobWkuZWR1LmluIiwiZXhwIjoxNzUxNjkzOTE3LCJpYXQiOjE3NTE2OTMwMTcsImlzcyI6IkFmZm9yZCBNZWRpY2FsIFRlY2hub2xvZ2llcyBQcml2YXRlIExpbWl0ZWQiLCJqdGkiOiIxZDU4YmFlOC01NWM2LTQ4M2UtOTcwMy1lMDc1MWE5MmY2YzIiLCJsb2NhbGUiOiJlbi1JTiIsIm5hbWUiOiJiaHV3YW4gYiIsInN1YiI6ImZkNjNmNmI0LTkzNjYtNGVlZS1hMTk2LTM1OTFmNzE1MDkxOCJ9LCJlbWFpbCI6IjIyMTQwMTAxNkByYWphbGFrc2htaS5lZHUuaW4iLCJuYW1lIjoiYmh1d2FuIGIiLCJyb2xsTm8iOiIyMjE0MDEwMTYiLCJhY2Nlc3NDb2RlIjoiY1d5YVhXIiwiY2xpZW50SUQiOiJmZDYzZjZiNC05MzY2LTRlZWUtYTE5Ni0zNTkxZjcxNTA5MTgiLCJjbGllbnRTZWNyZXQiOiJRR05XWndyZXpFakRiWlFnIn0.Gb7oKr3iaABMhbn80I0HJkgMcrywbDgkovbi-awy6zQ"
     
     def _validate_stack(self, stack: str) -> bool:
         """Validate the stack parameter."""

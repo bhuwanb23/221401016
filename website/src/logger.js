@@ -7,6 +7,9 @@ class LoggingMiddleware {
     constructor(apiUrl = "http://20.244.56.144/evaluation-service/logs") {
         this.apiUrl = apiUrl;
         
+        // Authorization token
+        this.authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJNYXBDbGFpbXMiOnsiYXVkIjoiaHR0cDovLzIwLjI0NC41Ni4xNDQvZXZhbHVhdGlvbi1zZXJ2aWNlIiwiZW1haWwiOiIyMjE0MDEwMTZAcmFqYWxha3NobWkuZWR1LmluIiwiZXhwIjoxNzUxNjkzOTE3LCJpYXQiOjE3NTE2OTMwMTcsImlzcyI6IkFmZm9yZCBNZWRpY2FsIFRlY2hub2xvZ2llcyBQcml2YXRlIExpbWl0ZWQiLCJqdGkiOiIxZDU4YmFlOC01NWM2LTQ4M2UtOTcwMy1lMDc1MWE5MmY2YzIiLCJsb2NhbGUiOiJlbi1JTiIsIm5hbWUiOiJiaHV3YW4gYiIsInN1YiI6ImZkNjNmNmI0LTkzNjYtNGVlZS1hMTk2LTM1OTFmNzE1MDkxOCJ9LCJlbWFpbCI6IjIyMTQwMTAxNkByYWphbGFrc2htaS5lZHUuaW4iLCJuYW1lIjoiYmh1d2FuIGIiLCJyb2xsTm8iOiIyMjE0MDEwMTYiLCJhY2Nlc3NDb2RlIjoiY1d5YVhXIiwiY2xpZW50SUQiOiJmZDYzZjZiNC05MzY2LTRlZWUtYTE5Ni0zNTkxZjcxNTA5MTgiLCJjbGllbnRTZWNyZXQiOiJRR05XWndyZXpFakRiWlFnIn0.Gb7oKr3iaABMhbn80I0HJkgMcrywbDgkovbi-awy6zQ";
+        
         // Valid values for validation
         this.validStacks = new Set(["backend", "frontend"]);
         this.validLevels = new Set(["debug", "info", "warn", "error", "fatal"]);
@@ -51,8 +54,8 @@ class LoggingMiddleware {
         return true;
     }
     
-    validatePackage(package, stack) {
-        const packageLower = package.toLowerCase();
+    validatePackage(packageName, stack) {
+        const packageLower = packageName.toLowerCase();
         let validPackages;
         
         if (stack.toLowerCase() === "backend") {
@@ -65,7 +68,7 @@ class LoggingMiddleware {
         }
         
         if (!validPackages.has(packageLower)) {
-            this.localLogger.error(`Invalid package '${package}' for stack '${stack}'. Valid packages: ${Array.from(validPackages).join(', ')}`);
+            this.localLogger.error(`Invalid package '${packageName}' for stack '${stack}'. Valid packages: ${Array.from(validPackages).join(', ')}`);
             return false;
         }
         return true;
@@ -83,7 +86,7 @@ class LoggingMiddleware {
         return `${message} | Context: ${contextStr}`;
     }
     
-    async log(stack, level, package, message, context = {}) {
+    async log(stack, level, packageName, message, context = {}) {
         try {
             // Validate inputs
             if (!this.validateStack(stack)) {
@@ -92,7 +95,7 @@ class LoggingMiddleware {
             if (!this.validateLevel(level)) {
                 return null;
             }
-            if (!this.validatePackage(package, stack)) {
+            if (!this.validatePackage(packageName, stack)) {
                 return null;
             }
             
@@ -103,7 +106,7 @@ class LoggingMiddleware {
             const payload = {
                 stack: stack.toLowerCase(),
                 level: level.toLowerCase(),
-                package: package.toLowerCase(),
+                package: packageName.toLowerCase(),
                 message: formattedMessage
             };
             
@@ -114,6 +117,7 @@ class LoggingMiddleware {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${this.authToken}`
                 },
                 body: JSON.stringify(payload)
             });
@@ -139,24 +143,24 @@ class LoggingMiddleware {
         }
     }
     
-    async debug(stack, package, message, context = {}) {
-        return this.log(stack, "debug", package, message, context);
+    async debug(stack, packageName, message, context = {}) {
+        return this.log(stack, "debug", packageName, message, context);
     }
     
-    async info(stack, package, message, context = {}) {
-        return this.log(stack, "info", package, message, context);
+    async info(stack, packageName, message, context = {}) {
+        return this.log(stack, "info", packageName, message, context);
     }
     
-    async warn(stack, package, message, context = {}) {
-        return this.log(stack, "warn", package, message, context);
+    async warn(stack, packageName, message, context = {}) {
+        return this.log(stack, "warn", packageName, message, context);
     }
     
-    async error(stack, package, message, context = {}) {
-        return this.log(stack, "error", package, message, context);
+    async error(stack, packageName, message, context = {}) {
+        return this.log(stack, "error", packageName, message, context);
     }
     
-    async fatal(stack, package, message, context = {}) {
-        return this.log(stack, "fatal", package, message, context);
+    async fatal(stack, packageName, message, context = {}) {
+        return this.log(stack, "fatal", packageName, message, context);
     }
 }
 
@@ -164,28 +168,28 @@ class LoggingMiddleware {
 const logger = new LoggingMiddleware();
 
 // Convenience functions for easy usage
-export const Log = async (stack, level, package, message, context = {}) => {
-    return logger.log(stack, level, package, message, context);
+export const Log = async (stack, level, packageName, message, context = {}) => {
+    return logger.log(stack, level, packageName, message, context);
 };
 
-export const logDebug = async (stack, package, message, context = {}) => {
-    return logger.debug(stack, package, message, context);
+export const logDebug = async (stack, packageName, message, context = {}) => {
+    return logger.debug(stack, packageName, message, context);
 };
 
-export const logInfo = async (stack, package, message, context = {}) => {
-    return logger.info(stack, package, message, context);
+export const logInfo = async (stack, packageName, message, context = {}) => {
+    return logger.info(stack, packageName, message, context);
 };
 
-export const logWarn = async (stack, package, message, context = {}) => {
-    return logger.warn(stack, package, message, context);
+export const logWarn = async (stack, packageName, message, context = {}) => {
+    return logger.warn(stack, packageName, message, context);
 };
 
-export const logError = async (stack, package, message, context = {}) => {
-    return logger.error(stack, package, message, context);
+export const logError = async (stack, packageName, message, context = {}) => {
+    return logger.error(stack, packageName, message, context);
 };
 
-export const logFatal = async (stack, package, message, context = {}) => {
-    return logger.fatal(stack, package, message, context);
+export const logFatal = async (stack, packageName, message, context = {}) => {
+    return logger.fatal(stack, packageName, message, context);
 };
 
 // Export the logger instance for advanced usage
