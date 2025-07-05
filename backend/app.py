@@ -305,6 +305,65 @@ def get_analytics(shortcode):
         log_request("analytics", {"shortcode": shortcode, "error": str(e)}, False, str(e))
         return jsonify({"error": "Internal server error"}), 500
 
+@app.route('/urls', methods=['GET'])
+def get_all_urls():
+    """Get all URLs from the database."""
+    try:
+        conn = sqlite3.connect('url_shortener.db')
+        cursor = conn.cursor()
+        
+        # Get all URLs with their analytics
+        cursor.execute('''
+            SELECT 
+                u.id,
+                u.original_url,
+                u.shortcode,
+                u.created_at,
+                u.expires_at,
+                u.is_active,
+                COUNT(a.id) as access_count
+            FROM urls u
+            LEFT JOIN analytics a ON u.shortcode = a.shortcode
+            GROUP BY u.id, u.original_url, u.shortcode, u.created_at, u.expires_at, u.is_active
+            ORDER BY u.created_at DESC
+        ''')
+        
+        urls = cursor.fetchall()
+        conn.close()
+        
+        # Format the response
+        urls_data = []
+        for url in urls:
+            url_id, original_url, shortcode, created_at, expires_at, is_active, access_count = url
+            
+            # Check if URL is expired
+            is_expired = datetime.now() > datetime.fromisoformat(expires_at)
+            
+            urls_data.append({
+                "id": url_id,
+                "original_url": original_url,
+                "shortcode": shortcode,
+                "short_link": f"http://{request.host}/{shortcode}",
+                "created_at": created_at,
+                "expires_at": expires_at,
+                "is_active": bool(is_active),
+                "is_expired": is_expired,
+                "access_count": access_count
+            })
+        
+        log_request("get_all_urls", {
+            "total_urls": len(urls_data)
+        }, True)
+        
+        return jsonify({
+            "urls": urls_data,
+            "total_count": len(urls_data)
+        }), 200
+        
+    except Exception as e:
+        log_request("get_all_urls", {"error": str(e)}, False, str(e))
+        return jsonify({"error": "Internal server error"}), 500
+
 @app.route('/health', methods=['GET'])
 def health_check():
     """Health check endpoint."""

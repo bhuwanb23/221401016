@@ -14,21 +14,29 @@ import {
   Tooltip,
   Snackbar,
   CircularProgress,
-  Divider
+  Divider,
+  AppBar,
+  Toolbar,
+  Tabs,
+  Tab
 } from '@mui/material';
 import {
   ContentCopy as CopyIcon,
   OpenInNew as OpenIcon,
   Analytics as AnalyticsIcon,
   Link as LinkIcon,
-  AccessTime as TimeIcon
+  AccessTime as TimeIcon,
+  List as ListIcon,
+  Add as AddIcon
 } from '@mui/icons-material';
 import axios from 'axios';
+import UrlsList from './UrlsList';
 import './App.css';
 
 const API_BASE_URL = 'http://localhost:5000';
 
 function App() {
+  const [activeTab, setActiveTab] = useState(0);
   const [formData, setFormData] = useState({
     url: '',
     validity: 30,
@@ -40,6 +48,13 @@ function App() {
   const [success, setSuccess] = useState('');
   const [analytics, setAnalytics] = useState(null);
   const [showAnalytics, setShowAnalytics] = useState(false);
+
+  const handleTabChange = (event, newValue) => {
+    setActiveTab(newValue);
+    // Clear any existing alerts when switching tabs
+    setError('');
+    setSuccess('');
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -104,7 +119,7 @@ function App() {
     return new Date(dateString).toLocaleString();
   };
 
-  return (
+  const renderUrlShortener = () => (
     <Container maxWidth="md" sx={{ py: 4 }}>
       <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }}>
         {/* Header */}
@@ -300,7 +315,7 @@ function App() {
                 </Grid>
               </Grid>
               
-              {analytics.recent_accesses.length > 0 && (
+              {analytics.recent_accesses && analytics.recent_accesses.length > 0 && (
                 <>
                   <Divider sx={{ my: 2 }} />
                   <Typography variant="h6" gutterBottom>
@@ -323,6 +338,41 @@ function App() {
         )}
       </Paper>
     </Container>
+  );
+
+  return (
+    <Box sx={{ flexGrow: 1 }}>
+      {/* App Bar with Navigation */}
+      <AppBar position="static" elevation={1}>
+        <Toolbar>
+          <LinkIcon sx={{ mr: 2 }} />
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            URL Shortener Service
+          </Typography>
+        </Toolbar>
+        <Tabs 
+          value={activeTab} 
+          onChange={handleTabChange}
+          indicatorColor="secondary"
+          textColor="inherit"
+          variant="fullWidth"
+        >
+          <Tab 
+            icon={<AddIcon />} 
+            label="Create URL" 
+            iconPosition="start"
+          />
+          <Tab 
+            icon={<ListIcon />} 
+            label="Manage URLs" 
+            iconPosition="start"
+          />
+        </Tabs>
+      </AppBar>
+
+      {/* Content */}
+      {activeTab === 0 ? renderUrlShortener() : <UrlsList />}
+    </Box>
   );
 }
 
