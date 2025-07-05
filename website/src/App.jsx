@@ -32,6 +32,7 @@ import {
 import axios from 'axios';
 import UrlsList from './UrlsList';
 import './App.css';
+import { logInfo, logError, logDebug, logWarn, useLogger } from './logger';
 
 const API_BASE_URL = 'http://localhost:5000';
 
@@ -50,8 +51,13 @@ function App() {
   const [showAnalytics, setShowAnalytics] = useState(false);
 
   const handleTabChange = (event, newValue) => {
+    const tabNames = ['Create URL', 'Manage URLs'];
+    logInfo("frontend", "page", "Tab navigation", {
+      fromTab: tabNames[activeTab],
+      toTab: tabNames[newValue]
+    });
+    
     setActiveTab(newValue);
-    // Clear any existing alerts when switching tabs
     setError('');
     setSuccess('');
   };
@@ -72,6 +78,12 @@ function App() {
     setAnalytics(null);
 
     try {
+      logInfo("frontend", "components", "URL shortening form submitted", {
+        url: formData.url,
+        validity: formData.validity,
+        hasCustomShortcode: !!formData.shortcode.trim()
+      });
+
       const payload = {
         url: formData.url,
         validity: formData.validity
@@ -81,11 +93,30 @@ function App() {
         payload.shortcode = formData.shortcode.trim();
       }
 
+      logDebug("frontend", "api", "Sending API request to backend", {
+        endpoint: "/shorturls",
+        method: "POST",
+        payload: payload
+      });
+
       const response = await axios.post(`${API_BASE_URL}/shorturls`, payload);
+      
+      logInfo("frontend", "api", "API request successful", {
+        status: response.status,
+        shortLink: response.data.shortLink
+      });
+
       setResult(response.data);
       setSuccess('URL shortened successfully!');
     } catch (err) {
       const errorMessage = err.response?.data?.error || 'An error occurred while shortening the URL';
+      
+      logError("frontend", "api", "API request failed", {
+        status: err.response?.status,
+        error: errorMessage,
+        originalUrl: formData.url
+      });
+      
       setError(errorMessage);
     } finally {
       setLoading(false);
@@ -94,23 +125,43 @@ function App() {
 
   const copyToClipboard = async (text) => {
     try {
+      logDebug("frontend", "components", "Copy to clipboard action", { text: text });
       await navigator.clipboard.writeText(text);
       setSuccess('Copied to clipboard!');
+      logInfo("frontend", "components", "Successfully copied to clipboard", { text: text });
     } catch (err) {
+      logError("frontend", "components", "Failed to copy to clipboard", { 
+        text: text, 
+        error: err.message 
+      });
       setError('Failed to copy to clipboard');
     }
   };
 
   const openUrl = (url) => {
+    logDebug("frontend", "components", "Opening URL in new tab", { url: url });
     window.open(url, '_blank');
   };
 
   const getAnalytics = async (shortcode) => {
     try {
+      logInfo("frontend", "components", "Analytics request initiated", { shortcode: shortcode });
+      
       const response = await axios.get(`${API_BASE_URL}/analytics/${shortcode}`);
+      
+      logInfo("frontend", "api", "Analytics retrieved successfully", {
+        shortcode: shortcode,
+        accessCount: response.data.total_accesses
+      });
+      
       setAnalytics(response.data);
       setShowAnalytics(true);
     } catch (err) {
+      logError("frontend", "api", "Failed to fetch analytics", {
+        shortcode: shortcode,
+        status: err.response?.status,
+        error: err.response?.data?.error || err.message
+      });
       setError('Failed to fetch analytics');
     }
   };

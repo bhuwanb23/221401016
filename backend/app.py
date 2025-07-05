@@ -363,6 +363,9 @@ def redirect_to_original(shortcode):
 def get_analytics(shortcode):
     """Get analytics for a specific shortcode."""
     try:
+        log_info("backend", "handler", "Analytics request received", 
+                shortcode=shortcode, method=request.method, ip=request.remote_addr)
+        
         conn = sqlite3.connect('url_shortener.db')
         cursor = conn.cursor()
         
@@ -375,10 +378,15 @@ def get_analytics(shortcode):
         url_info = cursor.fetchone()
         
         if not url_info:
-            log_request("analytics", {"shortcode": shortcode, "error": "Shortcode not found"}, False, "Shortcode not found")
+            log_error("backend", "handler", "Shortcode not found for analytics", 
+                     shortcode=shortcode, ip=request.remote_addr)
             return jsonify({"error": "Shortcode not found"}), 404
         
         original_url, created_at, expires_at, is_active = url_info
+        
+        log_debug("backend", "db", "URL info retrieved for analytics", 
+                 shortcode=shortcode, original_url=original_url, 
+                 is_active=bool(is_active))
         
         # Get access count
         cursor.execute('''
@@ -398,6 +406,10 @@ def get_analytics(shortcode):
         
         conn.close()
         
+        log_debug("backend", "db", "Analytics data retrieved", 
+                 shortcode=shortcode, access_count=access_count, 
+                 recent_accesses_count=len(recent_accesses))
+        
         analytics_data = {
             "shortcode": shortcode,
             "original_url": original_url,
@@ -415,21 +427,24 @@ def get_analytics(shortcode):
             ]
         }
         
-        log_request("analytics", {
-            "shortcode": shortcode,
-            "access_count": access_count
-        }, True)
+        log_info("backend", "handler", "Analytics retrieved successfully", 
+                shortcode=shortcode, access_count=access_count, 
+                recent_accesses_count=len(recent_accesses))
         
         return jsonify(analytics_data), 200
         
     except Exception as e:
-        log_request("analytics", {"shortcode": shortcode, "error": str(e)}, False, str(e))
+        log_error("backend", "handler", "Unexpected error in analytics retrieval", 
+                 shortcode=shortcode, error=str(e), ip=request.remote_addr)
         return jsonify({"error": "Internal server error"}), 500
 
 @app.route('/urls', methods=['GET'])
 def get_all_urls():
     """Get all URLs from the database."""
     try:
+        log_info("backend", "handler", "Get all URLs request received", 
+                method=request.method, ip=request.remote_addr)
+        
         conn = sqlite3.connect('url_shortener.db')
         cursor = conn.cursor()
         
@@ -453,13 +468,23 @@ def get_all_urls():
         urls = cursor.fetchall()
         conn.close()
         
+        log_debug("backend", "db", "All URLs retrieved from database", 
+                 total_urls=len(urls))
+        
         # Format the response
         urls_data = []
+        active_urls = 0
+        expired_urls = 0
+        
         for url in urls:
             url_id, original_url, shortcode, short_link, created_at, expires_at, is_active, access_count = url
             
             # Check if URL is expired
             is_expired = datetime.now() > datetime.fromisoformat(expires_at)
+            if is_expired:
+                expired_urls += 1
+            else:
+                active_urls += 1
             
             # Use stored short_link or generate if not available (for backward compatibility)
             if not short_link:
@@ -477,9 +502,9 @@ def get_all_urls():
                 "access_count": access_count
             })
         
-        log_request("get_all_urls", {
-            "total_urls": len(urls_data)
-        }, True)
+        log_info("backend", "handler", "All URLs retrieved successfully", 
+                total_urls=len(urls_data), active_urls=active_urls, 
+                expired_urls=expired_urls)
         
         return jsonify({
             "urls": urls_data,
@@ -487,16 +512,52 @@ def get_all_urls():
         }), 200
         
     except Exception as e:
-        log_request("get_all_urls", {"error": str(e)}, False, str(e))
+        log_error("backend", "handler", "Unexpected error in get all URLs", 
+                 error=str(e), ip=request.remote_addr)
         return jsonify({"error": "Internal server error"}), 500
 
 @app.route('/health', methods=['GET'])
 def health_check():
     """Health check endpoint."""
-    log_request("health_check", {}, True)
-    return jsonify({"status": "healthy", "timestamp": datetime.now().isoformat()}), 200
+    try:
+        log_info("backend", "service", "Health check request received", 
+                method=request.method, ip=request.remote_addr)
+        
+        # Check database connectivity
+        try:
+            conn = sqlite3.connect('url_shortener.db')
+            cursor = conn.cursor()
+            cursor.execute('SELECT COUNT(*) FROM urls')
+            url_count = cursor.fetchone()[0]
+            conn.close()
+            
+            log_debug("backend", "db", "Database health check successful", 
+                     total_urls=url_count)
+            
+        except Exception as db_error:
+            log_error("backend", "db", "Database health check failed", 
+                     error=str(db_error))
+            return jsonify({"status": "unhealthy", "error": "Database connection failed"}), 500
+        
+        log_info("backend", "service", "Health check completed successfully")
+        return jsonify({
+            "status": "healthy", 
+            "timestamp": datetime.now().isoformat(),
+            "database": "connected",
+            "total_urls": url_count
+        }), 200
+        
+    except Exception as e:
+        log_error("backend", "service", "Health check failed", error=str(e))
+        return jsonify({"status": "unhealthy", "error": "Internal error"}), 500
 
 if __name__ == '__main__':
-    init_db()
-    log_request("server_start", {"message": "URL Shortener service started"}, True)
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    try:
+        init_db()
+        log_info("backend", "service", "URL Shortener service started", 
+                host="0.0.0.0", port=5000, debug=True)
+        app.run(debug=True, host='0.0.0.0', port=5000)
+    except Exception as e:
+        log_fatal("backend", "service", "Failed to start URL Shortener service", 
+                 error=str(e))
+        raise
