@@ -14,12 +14,30 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'logging_middlewar
 
 # Import the logging middleware
 try:
-    from register import make_api_request
+    from logger import Log, log_info, log_error, log_warn, log_debug, log_fatal
+    LOGGING_AVAILABLE = True
 except ImportError:
     # Fallback to simple logging if middleware is not available
-    def make_api_request(url, method="POST", data=None, **kwargs):
-        print(f"LOG: {json.dumps(data, indent=2)}")
-        return {"success": True}
+    def Log(stack, level, package, message, **kwargs):
+        print(f"LOG: {json.dumps({'stack': stack, 'level': level, 'package': package, 'message': message, **kwargs}, indent=2)}")
+        return {"success": True, "status_code": 200}
+    
+    def log_info(stack, package, message, **kwargs):
+        return Log(stack, "info", package, message, **kwargs)
+    
+    def log_error(stack, package, message, **kwargs):
+        return Log(stack, "error", package, message, **kwargs)
+    
+    def log_warn(stack, package, message, **kwargs):
+        return Log(stack, "warn", package, message, **kwargs)
+    
+    def log_debug(stack, package, message, **kwargs):
+        return Log(stack, "debug", package, message, **kwargs)
+    
+    def log_fatal(stack, package, message, **kwargs):
+        return Log(stack, "fatal", package, message, **kwargs)
+    
+    LOGGING_AVAILABLE = True
 
 app = Flask(__name__)
 CORS(app)
