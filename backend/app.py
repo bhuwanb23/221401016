@@ -13,7 +13,13 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'logging_middleware'))
 
 # Import the logging middleware
-from register import make_api_request
+try:
+    from register import make_api_request
+except ImportError:
+    # Fallback to simple logging if middleware is not available
+    def make_api_request(url, method="POST", data=None, **kwargs):
+        print(f"LOG: {json.dumps(data, indent=2)}")
+        return {"success": True}
 
 app = Flask(__name__)
 CORS(app)
@@ -68,9 +74,10 @@ def log_request(operation, details, success=True, error_message=None):
             method="POST",
             data=log_data
         )
-    except:
+    except Exception as e:
         # Fallback to console if logging middleware is not available
         print(f"LOG: {json.dumps(log_data)}")
+        print(f"Logging middleware error: {e}")
 
 def generate_shortcode(length=6):
     """Generate a random alphanumeric shortcode."""
