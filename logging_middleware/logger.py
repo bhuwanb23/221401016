@@ -86,9 +86,9 @@ class LoggingMiddleware:
             return False
         return True
     
-    def _validate_package(self, package: str, stack: str) -> bool:
+    def _validate_package(self, package_name: str, stack: str) -> bool:
         """Validate the package parameter based on stack."""
-        package_lower = package.lower()
+        package_lower = package_name.lower()
         
         if stack.lower() == "backend":
             valid_packages = self.valid_backend_packages | self.valid_shared_packages
@@ -99,7 +99,7 @@ class LoggingMiddleware:
             return False
         
         if package_lower not in valid_packages:
-            self.logger.error(f"Invalid package '{package}' for stack '{stack}'. Valid packages: {valid_packages}")
+            self.logger.error(f"Invalid package '{package_name}' for stack '{stack}'. Valid packages: {valid_packages}")
             return False
         return True
     
@@ -110,14 +110,14 @@ class LoggingMiddleware:
             return f"{message} | Context: {context}"
         return message
     
-    def log(self, stack: str, level: str, package: str, message: str, **kwargs) -> Optional[Dict[str, Any]]:
+    def log(self, stack: str, level: str, package_name: str, message: str, **kwargs) -> Optional[Dict[str, Any]]:
         """
         Send a log entry to the evaluation service.
         
         Args:
             stack: "backend" or "frontend"
             level: "debug", "info", "warn", "error", or "fatal"
-            package: Valid package for the given stack
+            package_name: Valid package for the given stack
             message: Log message
             **kwargs: Additional context to include in the message
         
@@ -130,7 +130,7 @@ class LoggingMiddleware:
                 return None
             if not self._validate_level(level):
                 return None
-            if not self._validate_package(package, stack):
+            if not self._validate_package(package_name, stack):
                 return None
             
             # Format message with context
@@ -140,7 +140,7 @@ class LoggingMiddleware:
             payload = {
                 "stack": stack.lower(),
                 "level": level.lower(),
-                "package": package.lower(),
+                "package": package_name.lower(),
                 "message": formatted_message
             }
             
@@ -174,62 +174,62 @@ class LoggingMiddleware:
             self.logger.error(f"Unexpected error in logging middleware: {str(e)}")
             return None
     
-    def debug(self, stack: str, package: str, message: str, **kwargs) -> Optional[Dict[str, Any]]:
+    def debug(self, stack: str, package_name: str, message: str, **kwargs) -> Optional[Dict[str, Any]]:
         """Log a debug message."""
-        return self.log(stack, "debug", package, message, **kwargs)
+        return self.log(stack, "debug", package_name, message, **kwargs)
     
-    def info(self, stack: str, package: str, message: str, **kwargs) -> Optional[Dict[str, Any]]:
+    def info(self, stack: str, package_name: str, message: str, **kwargs) -> Optional[Dict[str, Any]]:
         """Log an info message."""
-        return self.log(stack, "info", package, message, **kwargs)
+        return self.log(stack, "info", package_name, message, **kwargs)
     
-    def warn(self, stack: str, package: str, message: str, **kwargs) -> Optional[Dict[str, Any]]:
+    def warn(self, stack: str, package_name: str, message: str, **kwargs) -> Optional[Dict[str, Any]]:
         """Log a warning message."""
-        return self.log(stack, "warn", package, message, **kwargs)
+        return self.log(stack, "warn", package_name, message, **kwargs)
     
-    def error(self, stack: str, package: str, message: str, **kwargs) -> Optional[Dict[str, Any]]:
+    def error(self, stack: str, package_name: str, message: str, **kwargs) -> Optional[Dict[str, Any]]:
         """Log an error message."""
-        return self.log(stack, "error", package, message, **kwargs)
+        return self.log(stack, "error", package_name, message, **kwargs)
     
-    def fatal(self, stack: str, package: str, message: str, **kwargs) -> Optional[Dict[str, Any]]:
+    def fatal(self, stack: str, package_name: str, message: str, **kwargs) -> Optional[Dict[str, Any]]:
         """Log a fatal message."""
-        return self.log(stack, "fatal", package, message, **kwargs)
+        return self.log(stack, "fatal", package_name, message, **kwargs)
 
 # Global logger instance
 logger = LoggingMiddleware()
 
 # Convenience functions for easy usage
-def Log(stack: str, level: str, package: str, message: str, **kwargs) -> Optional[Dict[str, Any]]:
+def Log(stack: str, level: str, package_name: str, message: str, **kwargs) -> Optional[Dict[str, Any]]:
     """
     Convenience function to log messages.
     
     Args:
         stack: "backend" or "frontend"
         level: "debug", "info", "warn", "error", or "fatal"
-        package: Valid package for the given stack
+        package_name: Valid package for the given stack
         message: Log message
         **kwargs: Additional context
     
     Returns:
         Response data if successful, None if failed
     """
-    return logger.log(stack, level, package, message, **kwargs)
+    return logger.log(stack, level, package_name, message, **kwargs)
 
-def log_debug(stack: str, package: str, message: str, **kwargs) -> Optional[Dict[str, Any]]:
+def log_debug(stack: str, package_name: str, message: str, **kwargs) -> Optional[Dict[str, Any]]:
     """Log a debug message."""
-    return logger.debug(stack, package, message, **kwargs)
+    return logger.debug(stack, package_name, message, **kwargs)
 
-def log_info(stack: str, package: str, message: str, **kwargs) -> Optional[Dict[str, Any]]:
+def log_info(stack: str, package_name: str, message: str, **kwargs) -> Optional[Dict[str, Any]]:
     """Log an info message."""
-    return logger.info(stack, package, message, **kwargs)
+    return logger.info(stack, package_name, message, **kwargs)
 
-def log_warn(stack: str, package: str, message: str, **kwargs) -> Optional[Dict[str, Any]]:
+def log_warn(stack: str, package_name: str, message: str, **kwargs) -> Optional[Dict[str, Any]]:
     """Log a warning message."""
-    return logger.warn(stack, package, message, **kwargs)
+    return logger.warn(stack, package_name, message, **kwargs)
 
-def log_error(stack: str, package: str, message: str, **kwargs) -> Optional[Dict[str, Any]]:
+def log_error(stack: str, package_name: str, message: str, **kwargs) -> Optional[Dict[str, Any]]:
     """Log an error message."""
-    return logger.error(stack, package, message, **kwargs)
+    return logger.error(stack, package_name, message, **kwargs)
 
-def log_fatal(stack: str, package: str, message: str, **kwargs) -> Optional[Dict[str, Any]]:
+def log_fatal(stack: str, package_name: str, message: str, **kwargs) -> Optional[Dict[str, Any]]:
     """Log a fatal message."""
-    return logger.fatal(stack, package, message, **kwargs) 
+    return logger.fatal(stack, package_name, message, **kwargs) 
