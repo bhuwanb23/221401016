@@ -34,6 +34,7 @@ import {
   Warning as InactiveIcon
 } from '@mui/icons-material';
 import axios from 'axios';
+import { logInfo, logError, logDebug, logWarn } from './logger';
 
 const API_BASE_URL = 'http://localhost:5000';
 
@@ -47,11 +48,24 @@ function UrlsList() {
 
   const fetchUrls = async () => {
     try {
+      logInfo("frontend", "components", "Fetching URLs list", { endpoint: "/urls" });
+      
       setLoading(true);
       setError('');
+      
       const response = await axios.get(`${API_BASE_URL}/urls`);
+      
+      logInfo("frontend", "api", "URLs list retrieved successfully", {
+        totalUrls: response.data.urls.length,
+        totalCount: response.data.total_count
+      });
+      
       setUrls(response.data.urls);
     } catch (err) {
+      logError("frontend", "api", "Failed to fetch URLs list", {
+        status: err.response?.status,
+        error: err.response?.data?.error || err.message
+      });
       setError('Failed to fetch URLs');
       console.error('Error fetching URLs:', err);
     } finally {
@@ -60,29 +74,50 @@ function UrlsList() {
   };
 
   useEffect(() => {
+    logInfo("frontend", "components", "UrlsList component mounted");
     fetchUrls();
   }, []);
 
   const copyToClipboard = async (text) => {
     try {
+      logDebug("frontend", "components", "Copy to clipboard action", { text: text });
       await navigator.clipboard.writeText(text);
       setSuccess('Copied to clipboard!');
+      logInfo("frontend", "components", "Successfully copied to clipboard", { text: text });
       setTimeout(() => setSuccess(''), 3000);
     } catch (err) {
+      logError("frontend", "components", "Failed to copy to clipboard", { 
+        text: text, 
+        error: err.message 
+      });
       setError('Failed to copy to clipboard');
     }
   };
 
   const openUrl = (url) => {
+    logDebug("frontend", "components", "Opening URL in new tab", { url: url });
     window.open(url, '_blank');
   };
 
   const getAnalytics = async (shortcode) => {
     try {
+      logInfo("frontend", "components", "Analytics request initiated", { shortcode: shortcode });
+      
       const response = await axios.get(`${API_BASE_URL}/analytics/${shortcode}`);
+      
+      logInfo("frontend", "api", "Analytics retrieved successfully", {
+        shortcode: shortcode,
+        accessCount: response.data.total_accesses
+      });
+      
       setAnalytics(response.data);
       setShowAnalytics(true);
     } catch (err) {
+      logError("frontend", "api", "Failed to fetch analytics", {
+        shortcode: shortcode,
+        status: err.response?.status,
+        error: err.response?.data?.error || err.message
+      });
       setError('Failed to fetch analytics');
     }
   };
@@ -284,13 +319,15 @@ function UrlsList() {
                     <TableCell>
                       <Box display="flex" gap={0.5}>
                         <Tooltip title="Open short link">
-                          <IconButton
-                            size="small"
-                            onClick={() => openUrl(url.short_link)}
-                            disabled={url.is_expired}
-                          >
-                            <OpenIcon fontSize="small" />
-                          </IconButton>
+                          <span>
+                            <IconButton
+                              size="small"
+                              onClick={() => openUrl(url.short_link)}
+                              disabled={url.is_expired}
+                            >
+                              <OpenIcon fontSize="small" />
+                            </IconButton>
+                          </span>
                         </Tooltip>
                         <Tooltip title="View analytics">
                           <IconButton

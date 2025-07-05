@@ -1,0 +1,491 @@
+2025-07-05 11:33:58,572 - WARNING -  * Debugger is active!
+2025-07-05 11:33:58,578 - INFO -  * Debugger PIN: 629-455-228
+2025-07-05 11:34:06,702 - INFO -  * Detected change in 'C:\\Users\\tpgav\\OneDrive\\Desktop\\placement\\backend\\app.py', reloading
+2025-07-05 11:34:08,837 - INFO - Log API call - Status: 401, Time: 0.055s
+2025-07-05 11:34:08,838 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:34:08,893 - WARNING -  * Debugger is active!
+2025-07-05 11:34:08,902 - INFO -  * Debugger PIN: 629-455-228
+2025-07-05 11:34:27,089 - INFO -  * Detected change in 'C:\\Users\\tpgav\\OneDrive\\Desktop\\placement\\backend\\app.py', reloading
+2025-07-05 11:34:28,725 - INFO - Log API call - Status: 401, Time: 0.068s
+2025-07-05 11:34:28,727 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:34:28,761 - INFO - Log API call - Status: 401, Time: 0.029s
+2025-07-05 11:34:28,762 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:34:28,792 - INFO - Log API call - Status: 401, Time: 0.029s
+2025-07-05 11:34:28,793 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:34:28,823 - INFO - Log API call - Status: 401, Time: 0.028s
+2025-07-05 11:34:28,824 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:34:28,856 - INFO - Log API call - Status: 401, Time: 0.030s
+2025-07-05 11:34:28,857 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:34:28,887 - INFO - Log API call - Status: 401, Time: 0.029s
+2025-07-05 11:34:28,888 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:34:29,018 - WARNING -  * Debugger is active!
+2025-07-05 11:34:29,039 - INFO -  * Debugger PIN: 629-455-228
+2025-07-05 11:34:41,209 - INFO -  * Detected change in 'C:\\Users\\tpgav\\OneDrive\\Desktop\\placement\\backend\\app.py', reloading
+2025-07-05 11:34:42,800 - INFO - Log API call - Status: 401, Time: 0.077s
+2025-07-05 11:34:42,801 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:34:42,831 - INFO - Log API call - Status: 401, Time: 0.028s
+2025-07-05 11:34:42,831 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:34:42,858 - INFO - Log API call - Status: 401, Time: 0.026s
+2025-07-05 11:34:42,859 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:34:42,887 - INFO - Log API call - Status: 401, Time: 0.027s
+2025-07-05 11:34:42,887 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:34:42,915 - INFO - Log API call - Status: 401, Time: 0.027s
+2025-07-05 11:34:42,916 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:34:42,943 - INFO - Log API call - Status: 401, Time: 0.027s
+2025-07-05 11:34:42,943 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:34:43,016 - WARNING -  * Debugger is active!
+2025-07-05 11:34:43,027 - INFO -  * Debugger PIN: 629-455-228
+2025-07-05 11:35:06,349 - INFO -  * Detected change in 'C:\\Users\\tpgav\\OneDrive\\Desktop\\placement\\backend\\app.py', reloading
+2025-07-05 11:35:07,888 - INFO - Log API call - Status: 401, Time: 0.069s
+2025-07-05 11:35:07,889 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:35:07,916 - INFO - Log API call - Status: 401, Time: 0.026s
+2025-07-05 11:35:07,917 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:35:07,943 - INFO - Log API call - Status: 401, Time: 0.026s
+2025-07-05 11:35:07,944 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:35:07,973 - INFO - Log API call - Status: 401, Time: 0.027s
+2025-07-05 11:35:07,974 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:35:08,003 - INFO - Log API call - Status: 401, Time: 0.027s
+2025-07-05 11:35:08,004 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:35:08,034 - INFO - Log API call - Status: 401, Time: 0.029s
+2025-07-05 11:35:08,035 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:35:08,162 - WARNING -  * Debugger is active!
+2025-07-05 11:35:08,175 - INFO -  * Debugger PIN: 629-455-228
+2025-07-05 11:35:25,396 - INFO -  * Detected change in 'C:\\Users\\tpgav\\OneDrive\\Desktop\\placement\\backend\\app.py', reloading
+2025-07-05 11:35:27,192 - INFO - Log API call - Status: 401, Time: 0.063s
+2025-07-05 11:35:27,193 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:35:27,222 - INFO - Log API call - Status: 401, Time: 0.025s
+2025-07-05 11:35:27,223 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:35:27,251 - INFO - Log API call - Status: 401, Time: 0.026s
+2025-07-05 11:35:27,252 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:35:27,278 - INFO - Log API call - Status: 401, Time: 0.025s
+2025-07-05 11:35:27,279 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:35:27,306 - INFO - Log API call - Status: 401, Time: 0.025s
+2025-07-05 11:35:27,307 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:35:27,336 - INFO - Log API call - Status: 401, Time: 0.028s
+2025-07-05 11:35:27,337 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:35:27,475 - WARNING -  * Debugger is active!
+2025-07-05 11:35:27,490 - INFO -  * Debugger PIN: 629-455-228
+2025-07-05 11:35:45,752 - INFO -  * Detected change in 'C:\\Users\\tpgav\\OneDrive\\Desktop\\placement\\backend\\app.py', reloading
+2025-07-05 11:35:47,420 - INFO - Log API call - Status: 401, Time: 0.067s
+2025-07-05 11:35:47,421 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:35:47,449 - INFO - Log API call - Status: 401, Time: 0.026s
+2025-07-05 11:35:47,450 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:35:47,477 - INFO - Log API call - Status: 401, Time: 0.027s
+2025-07-05 11:35:47,478 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:35:47,508 - INFO - Log API call - Status: 401, Time: 0.028s
+2025-07-05 11:35:47,509 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:35:47,537 - INFO - Log API call - Status: 401, Time: 0.027s
+2025-07-05 11:35:47,538 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:35:47,567 - INFO - Log API call - Status: 401, Time: 0.027s
+2025-07-05 11:35:47,568 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:35:47,686 - WARNING -  * Debugger is active!
+2025-07-05 11:35:47,703 - INFO -  * Debugger PIN: 629-455-228
+2025-07-05 11:36:10,001 - INFO -  * Detected change in 'C:\\Users\\tpgav\\OneDrive\\Desktop\\placement\\backend\\app.py', reloading
+2025-07-05 11:36:11,874 - INFO - Log API call - Status: 401, Time: 0.062s
+2025-07-05 11:36:11,876 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:36:11,909 - INFO - Log API call - Status: 401, Time: 0.029s
+2025-07-05 11:36:11,910 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:36:11,942 - INFO - Log API call - Status: 401, Time: 0.031s
+2025-07-05 11:36:11,943 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:36:11,974 - INFO - Log API call - Status: 401, Time: 0.029s
+2025-07-05 11:36:11,975 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:36:12,005 - INFO - Log API call - Status: 401, Time: 0.028s
+2025-07-05 11:36:12,006 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:36:12,035 - INFO - Log API call - Status: 401, Time: 0.028s
+2025-07-05 11:36:12,036 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:36:12,152 - WARNING -  * Debugger is active!
+2025-07-05 11:36:12,169 - INFO -  * Debugger PIN: 629-455-228
+2025-07-05 11:36:24,343 - INFO -  * Detected change in 'C:\\Users\\tpgav\\OneDrive\\Desktop\\placement\\backend\\app.py', reloading
+2025-07-05 11:36:25,523 - INFO - Log API call - Status: 401, Time: 0.057s
+2025-07-05 11:36:25,524 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:36:25,551 - INFO - Log API call - Status: 401, Time: 0.025s
+2025-07-05 11:36:25,552 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:36:25,577 - INFO - Log API call - Status: 401, Time: 0.025s
+2025-07-05 11:36:25,577 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:36:25,603 - INFO - Log API call - Status: 401, Time: 0.025s
+2025-07-05 11:36:25,603 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:36:25,638 - INFO - Log API call - Status: 401, Time: 0.034s
+2025-07-05 11:36:25,638 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:36:25,664 - INFO - Log API call - Status: 401, Time: 0.025s
+2025-07-05 11:36:25,665 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:36:25,718 - WARNING -  * Debugger is active!
+2025-07-05 11:36:25,723 - INFO -  * Debugger PIN: 629-455-228
+2025-07-05 11:37:26,938 - INFO - 127.0.0.1 - - [05/Jul/2025 11:37:26] "OPTIONS /shorturls HTTP/1.1" 200 -
+2025-07-05 11:37:27,253 - INFO - Log API call - Status: 401, Time: 0.061s
+2025-07-05 11:37:27,255 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:37:27,286 - INFO - Log API call - Status: 401, Time: 0.030s
+2025-07-05 11:37:27,287 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:37:27,315 - INFO - Log API call - Status: 401, Time: 0.027s
+2025-07-05 11:37:27,316 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:37:27,345 - INFO - Log API call - Status: 401, Time: 0.028s
+2025-07-05 11:37:27,347 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:37:27,377 - INFO - Log API call - Status: 401, Time: 0.029s
+2025-07-05 11:37:27,381 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:37:27,415 - INFO - Log API call - Status: 401, Time: 0.028s
+2025-07-05 11:37:27,416 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:37:27,448 - INFO - Log API call - Status: 401, Time: 0.031s
+2025-07-05 11:37:27,449 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:37:27,479 - INFO - Log API call - Status: 401, Time: 0.029s
+2025-07-05 11:37:27,480 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:37:27,520 - INFO - Log API call - Status: 401, Time: 0.026s
+2025-07-05 11:37:27,520 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:37:27,549 - INFO - Log API call - Status: 401, Time: 0.028s
+2025-07-05 11:37:27,551 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:37:27,556 - INFO - 127.0.0.1 - - [05/Jul/2025 11:37:27] "[35m[1mPOST /shorturls HTTP/1.1[0m" 201 -
+2025-07-05 11:37:31,111 - INFO - Log API call - Status: 401, Time: 0.025s
+2025-07-05 11:37:31,112 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:37:31,141 - INFO - Log API call - Status: 401, Time: 0.025s
+2025-07-05 11:37:31,142 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:37:31,168 - INFO - Log API call - Status: 401, Time: 0.025s
+2025-07-05 11:37:31,169 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:37:31,195 - INFO - Log API call - Status: 401, Time: 0.024s
+2025-07-05 11:37:31,196 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:37:31,197 - INFO - 127.0.0.1 - - [05/Jul/2025 11:37:31] "GET /analytics/hkvyfiqfkwb HTTP/1.1" 200 -
+2025-07-05 11:37:36,453 - INFO - Log API call - Status: 401, Time: 0.029s
+2025-07-05 11:37:36,454 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:37:36,486 - INFO - Log API call - Status: 401, Time: 0.028s
+2025-07-05 11:37:36,487 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:37:36,519 - INFO - Log API call - Status: 401, Time: 0.032s
+2025-07-05 11:37:36,521 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:37:36,523 - INFO - 127.0.0.1 - - [05/Jul/2025 11:37:36] "GET /urls HTTP/1.1" 200 -
+2025-07-05 11:37:36,703 - INFO - Log API call - Status: 401, Time: 0.024s
+2025-07-05 11:37:36,703 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:37:36,731 - INFO - Log API call - Status: 401, Time: 0.026s
+2025-07-05 11:37:36,733 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:37:36,759 - INFO - Log API call - Status: 401, Time: 0.025s
+2025-07-05 11:37:36,760 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:37:36,762 - INFO - 127.0.0.1 - - [05/Jul/2025 11:37:36] "GET /urls HTTP/1.1" 200 -
+2025-07-05 11:37:43,403 - INFO - Log API call - Status: 401, Time: 0.025s
+2025-07-05 11:37:43,404 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:37:43,435 - INFO - Log API call - Status: 401, Time: 0.025s
+2025-07-05 11:37:43,436 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:37:43,463 - INFO - Log API call - Status: 401, Time: 0.027s
+2025-07-05 11:37:43,464 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:37:43,466 - INFO - 127.0.0.1 - - [05/Jul/2025 11:37:43] "GET /urls HTTP/1.1" 200 -
+2025-07-05 11:37:57,688 - INFO - Log API call - Status: 401, Time: 0.026s
+2025-07-05 11:37:57,688 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:37:57,718 - INFO - Log API call - Status: 401, Time: 0.027s
+2025-07-05 11:37:57,719 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:37:57,750 - INFO - Log API call - Status: 401, Time: 0.029s
+2025-07-05 11:37:57,751 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:37:57,779 - INFO - Log API call - Status: 401, Time: 0.027s
+2025-07-05 11:37:57,780 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:37:57,782 - INFO - 127.0.0.1 - - [05/Jul/2025 11:37:57] "GET /analytics/hkvyfiqfkwb HTTP/1.1" 200 -
+2025-07-05 11:40:19,591 - INFO - Log API call - Status: 401, Time: 0.072s
+2025-07-05 11:40:19,592 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:40:19,626 - INFO - Log API call - Status: 401, Time: 0.030s
+2025-07-05 11:40:19,627 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:40:19,660 - INFO - Log API call - Status: 401, Time: 0.031s
+2025-07-05 11:40:19,662 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:40:19,713 - INFO - Log API call - Status: 401, Time: 0.047s
+2025-07-05 11:40:19,714 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:40:19,746 - INFO - Log API call - Status: 401, Time: 0.029s
+2025-07-05 11:40:19,747 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:40:19,782 - INFO - Log API call - Status: 401, Time: 0.034s
+2025-07-05 11:40:19,783 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:40:20,015 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.16.9.78:5000
+2025-07-05 11:40:20,016 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-05 11:40:20,021 - INFO -  * Restarting with stat
+2025-07-05 11:40:21,787 - INFO - Log API call - Status: 401, Time: 0.077s
+2025-07-05 11:40:21,789 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:40:21,827 - INFO - Log API call - Status: 401, Time: 0.033s
+2025-07-05 11:40:21,827 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:40:21,856 - INFO - Log API call - Status: 401, Time: 0.028s
+2025-07-05 11:40:21,857 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:40:21,886 - INFO - Log API call - Status: 401, Time: 0.028s
+2025-07-05 11:40:21,887 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:40:21,915 - INFO - Log API call - Status: 401, Time: 0.027s
+2025-07-05 11:40:21,916 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:40:21,954 - INFO - Log API call - Status: 401, Time: 0.037s
+2025-07-05 11:40:21,955 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:40:22,107 - WARNING -  * Debugger is active!
+2025-07-05 11:40:22,120 - INFO -  * Debugger PIN: 629-455-228
+2025-07-05 11:41:04,572 - INFO -  * Detected change in 'C:\\Users\\tpgav\\OneDrive\\Desktop\\placement\\logging_middleware\\logger.py', reloading
+2025-07-05 11:41:04,657 - INFO -  * Restarting with stat
+2025-07-05 11:41:05,602 - INFO - Log API call - Status: 401, Time: 0.064s
+2025-07-05 11:41:05,603 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:41:05,631 - INFO - Log API call - Status: 401, Time: 0.024s
+2025-07-05 11:41:05,632 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:41:05,658 - INFO - Log API call - Status: 401, Time: 0.025s
+2025-07-05 11:41:05,659 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:41:05,685 - INFO - Log API call - Status: 401, Time: 0.024s
+2025-07-05 11:41:05,686 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:41:05,711 - INFO - Log API call - Status: 401, Time: 0.024s
+2025-07-05 11:41:05,712 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:41:05,737 - INFO - Log API call - Status: 401, Time: 0.024s
+2025-07-05 11:41:05,737 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:41:05,830 - WARNING -  * Debugger is active!
+2025-07-05 11:41:05,842 - INFO -  * Debugger PIN: 629-455-228
+2025-07-05 11:42:46,912 - INFO -  * Detected change in 'C:\\Users\\tpgav\\OneDrive\\Desktop\\placement\\logging_middleware\\logger.py', reloading
+2025-07-05 11:42:47,038 - INFO -  * Restarting with stat
+2025-07-05 11:47:32,402 - INFO - Log API call - Status: 401, Time: 0.064s
+2025-07-05 11:47:32,403 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:47:32,438 - INFO - Log API call - Status: 401, Time: 0.031s
+2025-07-05 11:47:32,439 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:47:32,475 - INFO - Log API call - Status: 401, Time: 0.035s
+2025-07-05 11:47:32,476 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:47:32,512 - INFO - Log API call - Status: 401, Time: 0.034s
+2025-07-05 11:47:32,513 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:47:32,547 - INFO - Log API call - Status: 401, Time: 0.032s
+2025-07-05 11:47:32,548 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:47:32,580 - INFO - Log API call - Status: 401, Time: 0.031s
+2025-07-05 11:47:32,582 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:47:32,786 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.16.9.78:5000
+2025-07-05 11:47:32,787 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-05 11:47:32,793 - INFO -  * Restarting with stat
+2025-07-05 11:47:33,782 - INFO - Log API call - Status: 401, Time: 0.068s
+2025-07-05 11:47:33,783 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:47:33,806 - INFO - Log API call - Status: 401, Time: 0.021s
+2025-07-05 11:47:33,806 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:47:33,829 - INFO - Log API call - Status: 401, Time: 0.022s
+2025-07-05 11:47:33,830 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:47:33,853 - INFO - Log API call - Status: 401, Time: 0.022s
+2025-07-05 11:47:33,854 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:47:33,878 - INFO - Log API call - Status: 401, Time: 0.023s
+2025-07-05 11:47:33,878 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:47:33,903 - INFO - Log API call - Status: 401, Time: 0.024s
+2025-07-05 11:47:33,904 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:47:33,961 - WARNING -  * Debugger is active!
+2025-07-05 11:47:33,967 - INFO -  * Debugger PIN: 629-455-228
+2025-07-05 11:47:56,202 - INFO -  * Detected change in 'C:\\Users\\tpgav\\OneDrive\\Desktop\\placement\\logging_middleware\\logger.py', reloading
+2025-07-05 11:47:56,338 - INFO -  * Restarting with stat
+2025-07-05 11:47:57,766 - INFO - Log API call - Status: 401, Time: 0.068s
+2025-07-05 11:47:57,767 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:47:57,797 - INFO - Log API call - Status: 401, Time: 0.028s
+2025-07-05 11:47:57,798 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:47:57,826 - INFO - Log API call - Status: 401, Time: 0.028s
+2025-07-05 11:47:57,828 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:47:57,861 - INFO - Log API call - Status: 401, Time: 0.031s
+2025-07-05 11:47:57,862 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:47:57,894 - INFO - Log API call - Status: 401, Time: 0.030s
+2025-07-05 11:47:57,895 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:47:57,925 - INFO - Log API call - Status: 401, Time: 0.028s
+2025-07-05 11:47:57,926 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:47:58,034 - WARNING -  * Debugger is active!
+2025-07-05 11:47:58,058 - INFO -  * Debugger PIN: 629-455-228
+2025-07-05 11:48:06,203 - INFO -  * Detected change in 'C:\\Users\\tpgav\\OneDrive\\Desktop\\placement\\logging_middleware\\logger.py', reloading
+2025-07-05 11:48:06,342 - INFO -  * Restarting with stat
+2025-07-05 11:48:07,496 - INFO - Log API call - Status: 401, Time: 0.071s
+2025-07-05 11:48:07,497 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:48:07,526 - INFO - Log API call - Status: 401, Time: 0.027s
+2025-07-05 11:48:07,527 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:48:07,556 - INFO - Log API call - Status: 401, Time: 0.028s
+2025-07-05 11:48:07,557 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:48:07,587 - INFO - Log API call - Status: 401, Time: 0.029s
+2025-07-05 11:48:07,588 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:48:07,620 - INFO - Log API call - Status: 401, Time: 0.030s
+2025-07-05 11:48:07,621 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:48:07,651 - INFO - Log API call - Status: 401, Time: 0.029s
+2025-07-05 11:48:07,653 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:48:07,750 - WARNING -  * Debugger is active!
+2025-07-05 11:48:07,762 - INFO -  * Debugger PIN: 629-455-228
+2025-07-05 11:48:18,933 - INFO -  * Detected change in 'C:\\Users\\tpgav\\OneDrive\\Desktop\\placement\\logging_middleware\\logger.py', reloading
+2025-07-05 11:48:19,095 - INFO -  * Restarting with stat
+2025-07-05 11:48:20,463 - INFO - Log API call - Status: 401, Time: 0.066s
+2025-07-05 11:48:20,464 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:48:20,490 - INFO - Log API call - Status: 401, Time: 0.024s
+2025-07-05 11:48:20,490 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:48:20,516 - INFO - Log API call - Status: 401, Time: 0.025s
+2025-07-05 11:48:20,517 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:48:20,542 - INFO - Log API call - Status: 401, Time: 0.024s
+2025-07-05 11:48:20,542 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:48:20,568 - INFO - Log API call - Status: 401, Time: 0.025s
+2025-07-05 11:48:20,569 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:48:20,596 - INFO - Log API call - Status: 401, Time: 0.026s
+2025-07-05 11:48:20,597 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:48:20,701 - WARNING -  * Debugger is active!
+2025-07-05 11:48:20,713 - INFO -  * Debugger PIN: 629-455-228
+2025-07-05 11:48:54,401 - INFO -  * Detected change in 'C:\\Users\\tpgav\\OneDrive\\Desktop\\placement\\logging_middleware\\logger.py', reloading
+2025-07-05 11:48:54,580 - INFO -  * Restarting with stat
+2025-07-05 11:48:56,502 - INFO - Log API call - Status: 401, Time: 0.083s
+2025-07-05 11:48:56,503 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:48:56,538 - INFO - Log API call - Status: 401, Time: 0.029s
+2025-07-05 11:48:56,539 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:48:56,567 - INFO - Log API call - Status: 401, Time: 0.027s
+2025-07-05 11:48:56,568 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:48:56,594 - INFO - Log API call - Status: 401, Time: 0.025s
+2025-07-05 11:48:56,594 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:48:56,621 - INFO - Log API call - Status: 401, Time: 0.026s
+2025-07-05 11:48:56,621 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:48:56,649 - INFO - Log API call - Status: 401, Time: 0.027s
+2025-07-05 11:48:56,649 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:48:56,697 - WARNING -  * Debugger is active!
+2025-07-05 11:48:56,709 - INFO -  * Debugger PIN: 629-455-228
+2025-07-05 11:49:57,367 - INFO - 127.0.0.1 - - [05/Jul/2025 11:49:57] "OPTIONS /shorturls HTTP/1.1" 200 -
+2025-07-05 11:49:57,638 - INFO - Log API call - Status: 401, Time: 0.029s
+2025-07-05 11:49:57,639 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:49:57,668 - INFO - Log API call - Status: 401, Time: 0.028s
+2025-07-05 11:49:57,668 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:49:57,698 - INFO - Log API call - Status: 401, Time: 0.029s
+2025-07-05 11:49:57,698 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:49:57,728 - INFO - Log API call - Status: 401, Time: 0.029s
+2025-07-05 11:49:57,729 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:49:57,763 - INFO - Log API call - Status: 401, Time: 0.033s
+2025-07-05 11:49:57,764 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:49:57,802 - INFO - Log API call - Status: 401, Time: 0.034s
+2025-07-05 11:49:57,802 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:49:57,832 - INFO - Log API call - Status: 401, Time: 0.028s
+2025-07-05 11:49:57,833 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:49:57,863 - INFO - Log API call - Status: 401, Time: 0.029s
+2025-07-05 11:49:57,863 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:49:57,904 - INFO - Log API call - Status: 401, Time: 0.029s
+2025-07-05 11:49:57,905 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:49:57,933 - INFO - Log API call - Status: 401, Time: 0.027s
+2025-07-05 11:49:57,933 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:49:57,935 - INFO - 127.0.0.1 - - [05/Jul/2025 11:49:57] "[35m[1mPOST /shorturls HTTP/1.1[0m" 201 -
+2025-07-05 11:50:06,338 - INFO - Log API call - Status: 401, Time: 0.031s
+2025-07-05 11:50:06,339 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:50:06,373 - INFO - Log API call - Status: 401, Time: 0.028s
+2025-07-05 11:50:06,402 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:50:06,431 - INFO - Log API call - Status: 401, Time: 0.027s
+2025-07-05 11:50:06,431 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:50:06,432 - INFO - 127.0.0.1 - - [05/Jul/2025 11:50:06] "GET /urls HTTP/1.1" 200 -
+2025-07-05 11:50:06,586 - INFO - Log API call - Status: 401, Time: 0.035s
+2025-07-05 11:50:06,586 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:50:06,616 - INFO - Log API call - Status: 401, Time: 0.027s
+2025-07-05 11:50:06,616 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:50:06,644 - INFO - Log API call - Status: 401, Time: 0.027s
+2025-07-05 11:50:06,644 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:50:06,646 - INFO - 127.0.0.1 - - [05/Jul/2025 11:50:06] "GET /urls HTTP/1.1" 200 -
+2025-07-05 11:51:34,377 - INFO - 127.0.0.1 - - [05/Jul/2025 11:51:34] "OPTIONS /shorturls HTTP/1.1" 200 -
+2025-07-05 11:51:34,708 - INFO - Log API call - Status: 401, Time: 0.079s
+2025-07-05 11:51:34,709 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:51:34,745 - INFO - Log API call - Status: 401, Time: 0.035s
+2025-07-05 11:51:34,745 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:51:34,777 - INFO - Log API call - Status: 401, Time: 0.031s
+2025-07-05 11:51:34,780 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:51:34,815 - INFO - Log API call - Status: 401, Time: 0.033s
+2025-07-05 11:51:34,816 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:51:34,850 - INFO - Log API call - Status: 401, Time: 0.032s
+2025-07-05 11:51:34,851 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:51:34,893 - INFO - Log API call - Status: 401, Time: 0.037s
+2025-07-05 11:51:34,894 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:51:34,928 - INFO - Log API call - Status: 401, Time: 0.032s
+2025-07-05 11:51:34,931 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:51:34,965 - INFO - Log API call - Status: 401, Time: 0.033s
+2025-07-05 11:51:34,967 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:51:35,036 - INFO - Log API call - Status: 401, Time: 0.042s
+2025-07-05 11:51:35,037 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:51:35,082 - INFO - Log API call - Status: 401, Time: 0.043s
+2025-07-05 11:51:35,083 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:51:35,086 - INFO - 127.0.0.1 - - [05/Jul/2025 11:51:35] "[35m[1mPOST /shorturls HTTP/1.1[0m" 201 -
+2025-07-05 11:53:36,576 - INFO - Log API call - Status: 401, Time: 0.112s
+2025-07-05 11:53:36,576 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:53:36,612 - INFO - Log API call - Status: 401, Time: 0.028s
+2025-07-05 11:53:36,613 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:53:36,650 - INFO - Log API call - Status: 401, Time: 0.035s
+2025-07-05 11:53:36,650 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:53:36,652 - INFO - 127.0.0.1 - - [05/Jul/2025 11:53:36] "GET /urls HTTP/1.1" 200 -
+2025-07-05 11:53:36,716 - INFO - Log API call - Status: 401, Time: 0.032s
+2025-07-05 11:53:36,717 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:53:36,751 - INFO - Log API call - Status: 401, Time: 0.029s
+2025-07-05 11:53:36,752 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:53:36,782 - INFO - Log API call - Status: 401, Time: 0.029s
+2025-07-05 11:53:36,783 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:53:36,787 - INFO - 127.0.0.1 - - [05/Jul/2025 11:53:36] "GET /urls HTTP/1.1" 200 -
+2025-07-05 11:54:38,388 - INFO - Log API call - Status: 401, Time: 0.064s
+2025-07-05 11:54:38,389 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:54:38,418 - INFO - Log API call - Status: 401, Time: 0.026s
+2025-07-05 11:54:38,418 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:54:38,451 - INFO - Log API call - Status: 401, Time: 0.032s
+2025-07-05 11:54:38,452 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:54:38,479 - INFO - Log API call - Status: 401, Time: 0.026s
+2025-07-05 11:54:38,479 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:54:38,506 - INFO - Log API call - Status: 401, Time: 0.026s
+2025-07-05 11:54:38,507 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:54:38,533 - INFO - Log API call - Status: 401, Time: 0.026s
+2025-07-05 11:54:38,534 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:54:38,654 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.16.9.78:5000
+2025-07-05 11:54:38,655 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-05 11:54:38,659 - INFO -  * Restarting with stat
+2025-07-05 11:54:40,462 - INFO - Log API call - Status: 401, Time: 0.069s
+2025-07-05 11:54:40,463 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:54:40,495 - INFO - Log API call - Status: 401, Time: 0.026s
+2025-07-05 11:54:40,496 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:54:40,524 - INFO - Log API call - Status: 401, Time: 0.026s
+2025-07-05 11:54:40,524 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:54:40,551 - INFO - Log API call - Status: 401, Time: 0.026s
+2025-07-05 11:54:40,552 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:54:40,577 - INFO - Log API call - Status: 401, Time: 0.024s
+2025-07-05 11:54:40,577 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:54:40,602 - INFO - Log API call - Status: 401, Time: 0.024s
+2025-07-05 11:54:40,603 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:54:40,763 - WARNING -  * Debugger is active!
+2025-07-05 11:54:40,786 - INFO -  * Debugger PIN: 629-455-228
+2025-07-05 11:55:12,906 - INFO - 127.0.0.1 - - [05/Jul/2025 11:55:12] "OPTIONS /shorturls HTTP/1.1" 200 -
+2025-07-05 11:55:13,183 - INFO - Log API call - Status: 401, Time: 0.028s
+2025-07-05 11:55:13,184 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:55:13,217 - INFO - Log API call - Status: 401, Time: 0.031s
+2025-07-05 11:55:13,221 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:55:13,256 - INFO - Log API call - Status: 401, Time: 0.033s
+2025-07-05 11:55:13,257 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:55:13,289 - INFO - Log API call - Status: 401, Time: 0.030s
+2025-07-05 11:55:13,291 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:55:13,323 - INFO - Log API call - Status: 401, Time: 0.031s
+2025-07-05 11:55:13,325 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:55:13,364 - INFO - Log API call - Status: 401, Time: 0.034s
+2025-07-05 11:55:13,366 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:55:13,405 - INFO - Log API call - Status: 401, Time: 0.034s
+2025-07-05 11:55:13,407 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:55:13,441 - INFO - Log API call - Status: 401, Time: 0.033s
+2025-07-05 11:55:13,442 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:55:13,510 - INFO - Log API call - Status: 401, Time: 0.033s
+2025-07-05 11:55:13,511 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:55:13,542 - INFO - Log API call - Status: 401, Time: 0.029s
+2025-07-05 11:55:13,543 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:55:13,547 - INFO - 127.0.0.1 - - [05/Jul/2025 11:55:13] "[35m[1mPOST /shorturls HTTP/1.1[0m" 201 -
+2025-07-05 11:55:29,681 - INFO - Log API call - Status: 401, Time: 0.029s
+2025-07-05 11:55:29,681 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:55:29,714 - INFO - Log API call - Status: 401, Time: 0.027s
+2025-07-05 11:55:29,714 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:55:29,741 - INFO - Log API call - Status: 401, Time: 0.026s
+2025-07-05 11:55:29,741 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:55:29,743 - INFO - 127.0.0.1 - - [05/Jul/2025 11:55:29] "GET /urls HTTP/1.1" 200 -
+2025-07-05 11:55:29,939 - INFO - Log API call - Status: 401, Time: 0.029s
+2025-07-05 11:55:29,940 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:55:29,976 - INFO - Log API call - Status: 401, Time: 0.029s
+2025-07-05 11:55:29,977 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:55:30,017 - INFO - Log API call - Status: 401, Time: 0.033s
+2025-07-05 11:55:30,021 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:55:30,025 - INFO - 127.0.0.1 - - [05/Jul/2025 11:55:30] "GET /urls HTTP/1.1" 200 -
+2025-07-05 11:57:21,921 - INFO - Log API call - Status: 401, Time: 0.067s
+2025-07-05 11:57:21,923 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:57:21,958 - INFO - Log API call - Status: 401, Time: 0.031s
+2025-07-05 11:57:21,960 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:57:21,987 - INFO - Log API call - Status: 401, Time: 0.027s
+2025-07-05 11:57:21,988 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:57:22,019 - INFO - Log API call - Status: 401, Time: 0.029s
+2025-07-05 11:57:22,020 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:57:22,048 - INFO - Log API call - Status: 401, Time: 0.027s
+2025-07-05 11:57:22,049 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:57:22,081 - INFO - Log API call - Status: 401, Time: 0.032s
+2025-07-05 11:57:22,082 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:57:22,227 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.16.9.78:5000
+2025-07-05 11:57:22,228 - INFO - [33mPress CTRL+C to quit[0m
+2025-07-05 11:57:22,232 - INFO -  * Restarting with stat
+2025-07-05 11:57:26,289 - INFO - Log API call - Status: 401, Time: 0.068s
+2025-07-05 11:57:26,292 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:57:26,327 - INFO - Log API call - Status: 401, Time: 0.030s
+2025-07-05 11:57:26,328 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:57:26,360 - INFO - Log API call - Status: 401, Time: 0.031s
+2025-07-05 11:57:26,362 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:57:26,394 - INFO - Log API call - Status: 401, Time: 0.031s
+2025-07-05 11:57:26,395 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:57:26,429 - INFO - Log API call - Status: 401, Time: 0.033s
+2025-07-05 11:57:26,430 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:57:26,462 - INFO - Log API call - Status: 401, Time: 0.031s
+2025-07-05 11:57:26,463 - ERROR - Log API failed - Status: 401, Response: {"message":"invalid authorization token"}
+2025-07-05 11:57:26,638 - WARNING -  * Debugger is active!
+2025-07-05 11:57:26,660 - INFO -  * Debugger PIN: 629-455-228
