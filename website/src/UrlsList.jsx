@@ -326,13 +326,15 @@ function UrlsList() {
                     <TableCell>
                       <Box display="flex" gap={0.5}>
                         <Tooltip title="Open short link">
-                          <IconButton
-                            size="small"
-                            onClick={() => openUrl(url.short_link)}
-                            disabled={url.is_expired}
-                          >
-                            <OpenIcon fontSize="small" />
-                          </IconButton>
+                          <span>
+                            <IconButton
+                              size="small"
+                              onClick={() => openUrl(url.short_link)}
+                              disabled={url.is_expired}
+                            >
+                              <OpenIcon fontSize="small" />
+                            </IconButton>
+                          </span>
                         </Tooltip>
                         <Tooltip title="View analytics">
                           <IconButton
