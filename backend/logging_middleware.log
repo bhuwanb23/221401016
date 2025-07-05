@@ -1,0 +1,38 @@
+2025-07-05 11:33:58,572 - WARNING -  * Debugger is active!
+2025-07-05 11:33:58,578 - INFO -  * Debugger PIN: 629-455-228
+2025-07-05 11:34:06,702 - INFO -  * Detected change in 'C:\\Users\\tpgav\\OneDrive\\Desktop\\placement\\backend\\app.py', reloading
+2025-07-05 11:34:08,837 - INFO - Log API call - Status: 401, Time: 0.055s
+2025-07-05 11:34:08,838 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:34:08,893 - WARNING -  * Debugger is active!
+2025-07-05 11:34:08,902 - INFO -  * Debugger PIN: 629-455-228
+2025-07-05 11:34:27,089 - INFO -  * Detected change in 'C:\\Users\\tpgav\\OneDrive\\Desktop\\placement\\backend\\app.py', reloading
+2025-07-05 11:34:28,725 - INFO - Log API call - Status: 401, Time: 0.068s
+2025-07-05 11:34:28,727 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:34:28,761 - INFO - Log API call - Status: 401, Time: 0.029s
+2025-07-05 11:34:28,762 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:34:28,792 - INFO - Log API call - Status: 401, Time: 0.029s
+2025-07-05 11:34:28,793 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:34:28,823 - INFO - Log API call - Status: 401, Time: 0.028s
+2025-07-05 11:34:28,824 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:34:28,856 - INFO - Log API call - Status: 401, Time: 0.030s
+2025-07-05 11:34:28,857 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:34:28,887 - INFO - Log API call - Status: 401, Time: 0.029s
+2025-07-05 11:34:28,888 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:34:29,018 - WARNING -  * Debugger is active!
+2025-07-05 11:34:29,039 - INFO -  * Debugger PIN: 629-455-228
+2025-07-05 11:34:41,209 - INFO -  * Detected change in 'C:\\Users\\tpgav\\OneDrive\\Desktop\\placement\\backend\\app.py', reloading
+2025-07-05 11:34:42,800 - INFO - Log API call - Status: 401, Time: 0.077s
+2025-07-05 11:34:42,801 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:34:42,831 - INFO - Log API call - Status: 401, Time: 0.028s
+2025-07-05 11:34:42,831 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:34:42,858 - INFO - Log API call - Status: 401, Time: 0.026s
+2025-07-05 11:34:42,859 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:34:42,887 - INFO - Log API call - Status: 401, Time: 0.027s
+2025-07-05 11:34:42,887 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:34:42,915 - INFO - Log API call - Status: 401, Time: 0.027s
+2025-07-05 11:34:42,916 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:34:42,943 - INFO - Log API call - Status: 401, Time: 0.027s
+2025-07-05 11:34:42,943 - ERROR - Log API failed - Status: 401, Response: {"message":"An authorization header is required"}
+2025-07-05 11:34:43,016 - WARNING -  * Debugger is active!
+2025-07-05 11:34:43,027 - INFO -  * Debugger PIN: 629-455-228
+2025-07-05 11:35:06,349 - INFO -  * Detected change in 'C:\\Users\\tpgav\\OneDrive\\Desktop\\placement\\backend\\app.py', reloading
