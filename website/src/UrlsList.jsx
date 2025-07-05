@@ -153,7 +153,7 @@ function UrlsList() {
         )}
 
         {/* Stats Card */}
-        <Card variant="outlined" sx={{ mb: 3 }}>
+        <Card variant="outlined" sx={{ mb: 3 }} className="stats-card">
           <CardContent>
             <Grid container spacing={3}>
               <Grid item xs={12} sm={4}>
@@ -209,6 +209,7 @@ function UrlsList() {
               <TableHead>
                 <TableRow sx={{ backgroundColor: 'grey.50' }}>
                   <TableCell><strong>Short Link</strong></TableCell>
+                  <TableCell><strong>Shortened URL</strong></TableCell>
                   <TableCell><strong>Original URL</strong></TableCell>
                   <TableCell><strong>Status</strong></TableCell>
                   <TableCell><strong>Created</strong></TableCell>
@@ -219,29 +220,50 @@ function UrlsList() {
               </TableHead>
               <TableBody>
                 {urls.map((url) => (
-                  <TableRow key={url.id} hover>
-                    <TableCell>
-                      <Box display="flex" alignItems="center">
-                        <Typography variant="body2" fontFamily="monospace" sx={{ mr: 1 }}>
-                          {url.shortcode}
-                        </Typography>
-                        <Tooltip title="Copy short link">
-                          <IconButton
-                            size="small"
-                            onClick={() => copyToClipboard(url.short_link)}
-                          >
-                            <CopyIcon fontSize="small" />
-                          </IconButton>
-                        </Tooltip>
-                      </Box>
-                    </TableCell>
-                    <TableCell>
-                      <Tooltip title={url.original_url}>
-                        <Typography variant="body2" sx={{ maxWidth: 200 }}>
-                          {truncateUrl(url.original_url)}
-                        </Typography>
-                      </Tooltip>
-                    </TableCell>
+                                     <TableRow key={url.id} hover>
+                     <TableCell>
+                       <Box display="flex" alignItems="center">
+                         <Typography variant="body2" fontFamily="monospace" sx={{ mr: 1, fontWeight: 600 }}>
+                           {url.shortcode}
+                         </Typography>
+                         <Tooltip title="Copy shortcode">
+                           <IconButton
+                             size="small"
+                             onClick={() => copyToClipboard(url.shortcode)}
+                           >
+                             <CopyIcon fontSize="small" />
+                           </IconButton>
+                         </Tooltip>
+                       </Box>
+                     </TableCell>
+                     <TableCell>
+                       <Box display="flex" alignItems="center">
+                         <Typography variant="body2" fontFamily="monospace" sx={{ 
+                           mr: 1, 
+                           fontWeight: 500,
+                           color: '#1976d2',
+                           textDecoration: 'underline',
+                           cursor: 'pointer'
+                         }} onClick={() => copyToClipboard(url.short_link)}>
+                           {url.short_link}
+                         </Typography>
+                         <Tooltip title="Copy shortened URL">
+                           <IconButton
+                             size="small"
+                             onClick={() => copyToClipboard(url.short_link)}
+                           >
+                             <CopyIcon fontSize="small" />
+                           </IconButton>
+                         </Tooltip>
+                       </Box>
+                     </TableCell>
+                     <TableCell>
+                       <Tooltip title={url.original_url}>
+                         <Typography variant="body2" sx={{ maxWidth: 200 }}>
+                           {truncateUrl(url.original_url)}
+                         </Typography>
+                       </Tooltip>
+                     </TableCell>
                     <TableCell>
                       {getStatusChip(url)}
                     </TableCell>

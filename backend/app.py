@@ -36,11 +36,19 @@ def init_db():
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             original_url TEXT NOT NULL,
             shortcode TEXT UNIQUE NOT NULL,
+            short_link TEXT,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             expires_at TIMESTAMP NOT NULL,
             is_active BOOLEAN DEFAULT 1
         )
     ''')
+    
+    # Add short_link column if it doesn't exist (for existing databases)
+    try:
+        cursor.execute('ALTER TABLE urls ADD COLUMN short_link TEXT')
+    except sqlite3.OperationalError:
+        # Column already exists
+        pass
     
     # Create analytics table
     cursor.execute('''
@@ -159,18 +167,20 @@ def create_short_url():
         # Calculate expiry time
         expires_at = datetime.now() + timedelta(minutes=validity)
         
+        # Generate the short link
+        short_link = f"http://{request.host}/{shortcode}"
+        
         # Save to database
         conn = sqlite3.connect('url_shortener.db')
         cursor = conn.cursor()
         cursor.execute('''
-            INSERT INTO urls (original_url, shortcode, expires_at)
-            VALUES (?, ?, ?)
-        ''', (original_url, shortcode, expires_at))
+            INSERT INTO urls (original_url, shortcode, short_link, expires_at)
+            VALUES (?, ?, ?, ?)
+        ''', (original_url, shortcode, short_link, expires_at))
         conn.commit()
         conn.close()
         
         # Create response
-        short_link = f"http://{request.host}/{shortcode}"
         response_data = {
             "shortLink": short_link,
             "expiry": expires_at.isoformat() + "Z"
@@ -318,13 +328,14 @@ def get_all_urls():
                 u.id,
                 u.original_url,
                 u.shortcode,
+                u.short_link,
                 u.created_at,
                 u.expires_at,
                 u.is_active,
                 COUNT(a.id) as access_count
             FROM urls u
             LEFT JOIN analytics a ON u.shortcode = a.shortcode
-            GROUP BY u.id, u.original_url, u.shortcode, u.created_at, u.expires_at, u.is_active
+            GROUP BY u.id, u.original_url, u.shortcode, u.short_link, u.created_at, u.expires_at, u.is_active
             ORDER BY u.created_at DESC
         ''')
         
@@ -334,16 +345,20 @@ def get_all_urls():
         # Format the response
         urls_data = []
         for url in urls:
-            url_id, original_url, shortcode, created_at, expires_at, is_active, access_count = url
+            url_id, original_url, shortcode, short_link, created_at, expires_at, is_active, access_count = url
             
             # Check if URL is expired
             is_expired = datetime.now() > datetime.fromisoformat(expires_at)
+            
+            # Use stored short_link or generate if not available (for backward compatibility)
+            if not short_link:
+                short_link = f"http://{request.host}/{shortcode}"
             
             urls_data.append({
                 "id": url_id,
                 "original_url": original_url,
                 "shortcode": shortcode,
-                "short_link": f"http://{request.host}/{shortcode}",
+                "short_link": short_link,
                 "created_at": created_at,
                 "expires_at": expires_at,
                 "is_active": bool(is_active),

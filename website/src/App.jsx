@@ -121,75 +121,131 @@ function App() {
 
   const renderUrlShortener = () => (
     <Container maxWidth="md" sx={{ py: 4 }}>
-      <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }}>
+      <Paper elevation={3} sx={{ p: 4, borderRadius: 2, background: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)' }}>
         {/* Header */}
         <Box textAlign="center" mb={4}>
-          <LinkIcon sx={{ fontSize: 48, color: 'primary.main', mb: 2 }} />
-          <Typography variant="h3" component="h1" gutterBottom>
+          <Box sx={{ 
+            display: 'inline-flex', 
+            alignItems: 'center', 
+            justifyContent: 'center',
+            width: 80,
+            height: 80,
+            borderRadius: '50%',
+            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            mb: 3,
+            boxShadow: '0 8px 32px rgba(102, 126, 234, 0.3)'
+          }}>
+            <LinkIcon sx={{ fontSize: 40, color: 'white' }} />
+          </Box>
+          <Typography variant="h3" component="h1" gutterBottom sx={{ 
+            fontWeight: 700, 
+            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            backgroundClip: 'text',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            mb: 2
+          }}>
             URL Shortener
           </Typography>
-          <Typography variant="body1" color="text.secondary">
-            Create short, shareable links with analytics
+          <Typography variant="body1" color="text.secondary" sx={{ fontSize: '1.1rem', maxWidth: 500, mx: 'auto' }}>
+            Transform long URLs into short, shareable links with comprehensive analytics and tracking
           </Typography>
         </Box>
 
         {/* Form */}
         <Box component="form" onSubmit={handleSubmit} sx={{ mb: 4 }}>
-          <Grid container spacing={3}>
-            <Grid item xs={12}>
-              <TextField
-                fullWidth
-                label="Long URL"
-                name="url"
-                value={formData.url}
-                onChange={handleInputChange}
-                placeholder="https://example.com/very-long-url"
-                required
-                variant="outlined"
-                size="large"
-              />
+          <Card variant="outlined" sx={{ p: 3, mb: 3, background: 'rgba(255, 255, 255, 0.8)' }}>
+            <Typography variant="h6" gutterBottom sx={{ mb: 3, color: '#333', fontWeight: 600 }}>
+              📝 URL Details
+            </Typography>
+            <Grid container spacing={3}>
+              <Grid item xs={12}>
+                <TextField
+                  fullWidth
+                  label="Long URL"
+                  name="url"
+                  value={formData.url}
+                  onChange={handleInputChange}
+                  placeholder="https://example.com/very-long-url"
+                  required
+                  variant="outlined"
+                  size="large"
+                  sx={{
+                    '& .MuiOutlinedInput-root': {
+                      borderRadius: 2,
+                      '&:hover fieldset': {
+                        borderColor: '#667eea',
+                      },
+                      '&.Mui-focused fieldset': {
+                        borderColor: '#667eea',
+                      },
+                    },
+                  }}
+                />
+              </Grid>
+              
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  fullWidth
+                  label="Validity (minutes)"
+                  name="validity"
+                  type="number"
+                  value={formData.validity}
+                  onChange={handleInputChange}
+                  inputProps={{ min: 1, max: 1440 }}
+                  helperText="Default: 30 minutes"
+                  variant="outlined"
+                  sx={{
+                    '& .MuiOutlinedInput-root': {
+                      borderRadius: 2,
+                    },
+                  }}
+                />
+              </Grid>
+              
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  fullWidth
+                  label="Custom Shortcode (optional)"
+                  name="shortcode"
+                  value={formData.shortcode}
+                  onChange={handleInputChange}
+                  placeholder="my-custom-link"
+                  helperText="3-20 alphanumeric characters"
+                  variant="outlined"
+                  sx={{
+                    '& .MuiOutlinedInput-root': {
+                      borderRadius: 2,
+                    },
+                  }}
+                />
+              </Grid>
             </Grid>
-            
-            <Grid item xs={12} sm={6}>
-              <TextField
-                fullWidth
-                label="Validity (minutes)"
-                name="validity"
-                type="number"
-                value={formData.validity}
-                onChange={handleInputChange}
-                inputProps={{ min: 1, max: 1440 }}
-                helperText="Default: 30 minutes"
-                variant="outlined"
-              />
-            </Grid>
-            
-            <Grid item xs={12} sm={6}>
-              <TextField
-                fullWidth
-                label="Custom Shortcode (optional)"
-                name="shortcode"
-                value={formData.shortcode}
-                onChange={handleInputChange}
-                placeholder="my-custom-link"
-                helperText="3-20 alphanumeric characters"
-                variant="outlined"
-              />
-            </Grid>
-            
-            <Grid item xs={12}>
-              <Button
-                type="submit"
-                variant="contained"
-                size="large"
-                fullWidth
-                disabled={loading || !formData.url}
-                startIcon={loading ? <CircularProgress size={20} /> : <LinkIcon />}
-              >
-                {loading ? 'Creating Short URL...' : 'Create Short URL'}
-              </Button>
-            </Grid>
-          </Grid>
+          </Card>
+          
+          <Button
+            type="submit"
+            variant="contained"
+            size="large"
+            fullWidth
+            disabled={loading || !formData.url}
+            startIcon={loading ? <CircularProgress size={20} /> : <LinkIcon />}
+            sx={{
+              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+              borderRadius: 2,
+              py: 1.5,
+              fontSize: '1.1rem',
+              fontWeight: 600,
+              textTransform: 'none',
+              boxShadow: '0 4px 20px rgba(102, 126, 234, 0.3)',
+              '&:hover': {
+                background: 'linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%)',
+                boxShadow: '0 6px 25px rgba(102, 126, 234, 0.4)',
+              },
+            }}
+          >
+            {loading ? 'Creating Short URL...' : '🚀 Create Short URL'}
+          </Button>
         </Box>
 
         {/* Error Alert */}
@@ -208,25 +264,64 @@ function App() {
 
         {/* Result Card */}
         {result && (
-          <Card variant="outlined" sx={{ mb: 3 }}>
+          <Card variant="outlined" sx={{ 
+            mb: 3, 
+            background: 'linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%)',
+            border: '2px solid #4caf50',
+            borderRadius: 2
+          }}>
             <CardContent>
-              <Typography variant="h6" gutterBottom>
-                Your Shortened URL
-              </Typography>
-              
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                <Box sx={{ 
+                  display: 'inline-flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center',
+                  width: 40,
+                  height: 40,
+                  borderRadius: '50%',
+                  background: '#4caf50',
+                  mr: 2
+                }}>
+                  <LinkIcon sx={{ fontSize: 20, color: 'white' }} />
+                </Box>
+                <Typography variant="h6" sx={{ color: '#2e7d32', fontWeight: 600 }}>
+                  ✅ Your Shortened URL is Ready!
+                </Typography>
+              </Box>
+              
+              <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
                 <TextField
                   fullWidth
                   value={result.shortLink}
                   variant="outlined"
                   size="small"
-                  InputProps={{ readOnly: true }}
-                  sx={{ mr: 1 }}
+                  InputProps={{ 
+                    readOnly: true,
+                    style: { 
+                      fontFamily: 'monospace',
+                      fontSize: '1rem',
+                      fontWeight: 500
+                    }
+                  }}
+                  sx={{ 
+                    mr: 1,
+                    '& .MuiOutlinedInput-root': {
+                      borderRadius: 2,
+                      background: 'white',
+                      '& fieldset': {
+                        borderColor: '#4caf50',
+                      },
+                    },
+                  }}
                 />
                 <Tooltip title="Copy URL">
                   <IconButton 
                     onClick={() => copyToClipboard(result.shortLink)}
-                    color="primary"
+                    sx={{ 
+                      background: '#4caf50',
+                      color: 'white',
+                      '&:hover': { background: '#388e3c' }
+                    }}
                   >
                     <CopyIcon />
                   </IconButton>
@@ -234,7 +329,12 @@ function App() {
                 <Tooltip title="Open URL">
                   <IconButton 
                     onClick={() => openUrl(result.shortLink)}
-                    color="primary"
+                    sx={{ 
+                      background: '#2196f3',
+                      color: 'white',
+                      ml: 1,
+                      '&:hover': { background: '#1976d2' }
+                    }}
                   >
                     <OpenIcon />
                   </IconButton>
@@ -242,17 +342,28 @@ function App() {
                 <Tooltip title="View Analytics">
                   <IconButton 
                     onClick={() => getAnalytics(result.shortLink.split('/').pop())}
-                    color="primary"
+                    sx={{ 
+                      background: '#ff9800',
+                      color: 'white',
+                      ml: 1,
+                      '&:hover': { background: '#f57c00' }
+                    }}
                   >
                     <AnalyticsIcon />
                   </IconButton>
                 </Tooltip>
               </Box>
               
-              <Box sx={{ display: 'flex', alignItems: 'center', color: 'text.secondary' }}>
-                <TimeIcon sx={{ mr: 1, fontSize: 16 }} />
-                <Typography variant="body2">
-                  Expires: {formatDate(result.expiry)}
+              <Box sx={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                p: 2, 
+                background: 'rgba(255, 255, 255, 0.7)',
+                borderRadius: 1
+              }}>
+                <TimeIcon sx={{ mr: 1, fontSize: 16, color: '#666' }} />
+                <Typography variant="body2" sx={{ color: '#666', fontWeight: 500 }}>
+                  ⏰ Expires: {formatDate(result.expiry)}
                 </Typography>
               </Box>
             </CardContent>
@@ -343,11 +454,36 @@ function App() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       {/* App Bar with Navigation */}
-      <AppBar position="static" elevation={1}>
-        <Toolbar>
-          <LinkIcon sx={{ mr: 2 }} />
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            URL Shortener Service
+      <AppBar position="static" elevation={2} sx={{ 
+        background: 'linear-gradient(135deg, #1976d2 0%, #1565c0 100%)',
+        boxShadow: '0 4px 20px rgba(25, 118, 210, 0.3)'
+      }}>
+        <Toolbar sx={{ minHeight: '64px !important' }}>
+          <Box sx={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            background: 'rgba(255, 255, 255, 0.1)',
+            borderRadius: 2,
+            px: 2,
+            py: 1,
+            mr: 2
+          }}>
+            <LinkIcon sx={{ mr: 1, color: 'white' }} />
+            <Typography variant="h6" component="div" sx={{ 
+              flexGrow: 1, 
+              color: 'white',
+              fontWeight: 600,
+              letterSpacing: '0.5px'
+            }}>
+              URL Shortener Pro
+            </Typography>
+          </Box>
+          <Typography variant="body2" sx={{ 
+            color: 'rgba(255, 255, 255, 0.8)',
+            ml: 'auto',
+            mr: 2
+          }}>
+            Professional URL Management
           </Typography>
         </Toolbar>
         <Tabs 
@@ -356,16 +492,39 @@ function App() {
           indicatorColor="secondary"
           textColor="inherit"
           variant="fullWidth"
+          sx={{
+            background: 'rgba(255, 255, 255, 0.1)',
+            '& .MuiTabs-indicator': {
+              height: 3,
+              background: 'white'
+            }
+          }}
         >
           <Tab 
             icon={<AddIcon />} 
             label="Create URL" 
             iconPosition="start"
+            sx={{ 
+              color: 'rgba(255, 255, 255, 0.8)',
+              fontWeight: 500,
+              '&.Mui-selected': {
+                color: 'white',
+                fontWeight: 600
+              }
+            }}
           />
           <Tab 
             icon={<ListIcon />} 
             label="Manage URLs" 
             iconPosition="start"
+            sx={{ 
+              color: 'rgba(255, 255, 255, 0.8)',
+              fontWeight: 500,
+              '&.Mui-selected': {
+                color: 'white',
+                fontWeight: 600
+              }
+            }}
           />
         </Tabs>
       </AppBar>
