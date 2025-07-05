@@ -9,14 +9,11 @@ import json
 import sys
 import os
 
-# Add the logging middleware to the path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'logging_middleware'))
 
-# Import the logging middleware
 try:
     from register import make_api_request
 except ImportError:
-    # Fallback to simple logging if middleware is not available
     def make_api_request(url, method="POST", data=None, **kwargs):
         print(f"LOG: {json.dumps(data, indent=2)}")
         return {"success": True}
@@ -24,13 +21,10 @@ except ImportError:
 app = Flask(__name__)
 CORS(app)
 
-# Database initialization
 def init_db():
     """Initialize the SQLite database with required tables."""
     conn = sqlite3.connect('url_shortener.db')
     cursor = conn.cursor()
-    
-    # Create URLs table
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS urls (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -42,15 +36,11 @@ def init_db():
             is_active BOOLEAN DEFAULT 1
         )
     ''')
-    
-    # Add short_link column if it doesn't exist (for existing databases)
     try:
         cursor.execute('ALTER TABLE urls ADD COLUMN short_link TEXT')
     except sqlite3.OperationalError:
-        # Column already exists
         pass
     
-    # Create analytics table
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS analytics (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -75,7 +65,6 @@ def log_request(operation, details, success=True, error_message=None):
         "error_message": error_message
     }
     
-    # Use the logging middleware to log the request
     try:
         make_api_request(
             url="http://localhost:5000/log",  # Internal logging endpoint
@@ -83,7 +72,6 @@ def log_request(operation, details, success=True, error_message=None):
             data=log_data
         )
     except Exception as e:
-        # Fallback to console if logging middleware is not available
         print(f"LOG: {json.dumps(log_data)}")
         print(f"Logging middleware error: {e}")
 
@@ -128,7 +116,6 @@ def create_short_url():
             log_request("create_short_url", {"error": "No JSON data provided"}, False, "No JSON data provided")
             return jsonify({"error": "No JSON data provided"}), 400
         
-        # Extract and validate required fields
         original_url = data.get('url')
         if not original_url:
             log_request("create_short_url", {"error": "URL is required"}, False, "URL is required")
@@ -138,16 +125,13 @@ def create_short_url():
             log_request("create_short_url", {"error": "Invalid URL format"}, False, "Invalid URL format")
             return jsonify({"error": "Invalid URL format"}), 400
         
-        # Extract optional fields
-        validity = data.get('validity', 30)  # Default to 30 minutes
+        validity = data.get('validity', 30)
         custom_shortcode = data.get('shortcode')
         
-        # Validate validity
         if not isinstance(validity, int) or validity <= 0:
             log_request("create_short_url", {"error": "Validity must be a positive integer"}, False, "Invalid validity")
             return jsonify({"error": "Validity must be a positive integer"}), 400
         
-        # Handle custom shortcode
         if custom_shortcode:
             if not is_valid_shortcode(custom_shortcode):
                 log_request("create_short_url", {"error": "Invalid shortcode format"}, False, "Invalid shortcode format")
@@ -159,18 +143,14 @@ def create_short_url():
             
             shortcode = custom_shortcode
         else:
-            # Generate unique shortcode
             shortcode = generate_shortcode()
             while shortcode_exists(shortcode):
                 shortcode = generate_shortcode()
         
-        # Calculate expiry time
         expires_at = datetime.now() + timedelta(minutes=validity)
         
-        # Generate the short link
         short_link = f"http://{request.host}/{shortcode}"
         
-        # Save to database
         conn = sqlite3.connect('url_shortener.db')
         cursor = conn.cursor()
         cursor.execute('''
@@ -180,7 +160,6 @@ def create_short_url():
         conn.commit()
         conn.close()
         
-        # Create response
         response_data = {
             "shortLink": short_link,
             "expiry": expires_at.isoformat() + "Z"
@@ -221,13 +200,11 @@ def redirect_to_original(shortcode):
         if not is_active:
             log_request("redirect", {"shortcode": shortcode, "error": "Link is inactive"}, False, "Link is inactive")
             return jsonify({"error": "Link is inactive"}), 410
-        
-        # Check if link has expired
+
         if datetime.now() > datetime.fromisoformat(expires_at):
             log_request("redirect", {"shortcode": shortcode, "error": "Link has expired"}, False, "Link expired")
             return jsonify({"error": "Link has expired"}), 410
         
-        # Log analytics
         cursor.execute('''
             INSERT INTO analytics (shortcode, ip_address, user_agent)
             VALUES (?, ?, ?)
@@ -255,7 +232,6 @@ def get_analytics(shortcode):
         conn = sqlite3.connect('url_shortener.db')
         cursor = conn.cursor()
         
-        # Get URL info
         cursor.execute('''
             SELECT original_url, created_at, expires_at, is_active
             FROM urls 
@@ -269,13 +245,11 @@ def get_analytics(shortcode):
         
         original_url, created_at, expires_at, is_active = url_info
         
-        # Get access count
         cursor.execute('''
             SELECT COUNT(*) FROM analytics WHERE shortcode = ?
         ''', (shortcode,))
         access_count = cursor.fetchone()[0]
         
-        # Get recent accesses
         cursor.execute('''
             SELECT accessed_at, ip_address, user_agent
             FROM analytics 
@@ -322,7 +296,6 @@ def get_all_urls():
         conn = sqlite3.connect('url_shortener.db')
         cursor = conn.cursor()
         
-        # Get all URLs with their analytics
         cursor.execute('''
             SELECT 
                 u.id,
@@ -342,15 +315,12 @@ def get_all_urls():
         urls = cursor.fetchall()
         conn.close()
         
-        # Format the response
         urls_data = []
         for url in urls:
             url_id, original_url, shortcode, short_link, created_at, expires_at, is_active, access_count = url
             
-            # Check if URL is expired
             is_expired = datetime.now() > datetime.fromisoformat(expires_at)
             
-            # Use stored short_link or generate if not available (for backward compatibility)
             if not short_link:
                 short_link = f"http://{request.host}/{shortcode}"
             

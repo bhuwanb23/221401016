@@ -51,7 +51,6 @@ function App() {
 
   const handleTabChange = (event, newValue) => {
     setActiveTab(newValue);
-    // Clear any existing alerts when switching tabs
     setError('');
     setSuccess('');
   };
@@ -122,7 +121,6 @@ function App() {
   const renderUrlShortener = () => (
     <Container maxWidth="md" sx={{ py: 4 }}>
       <Paper elevation={3} sx={{ p: 4, borderRadius: 2, background: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)' }}>
-        {/* Header */}
         <Box textAlign="center" mb={4}>
           <Box sx={{ 
             display: 'inline-flex', 
@@ -152,7 +150,6 @@ function App() {
           </Typography>
         </Box>
 
-        {/* Form */}
         <Box component="form" onSubmit={handleSubmit} sx={{ mb: 4 }}>
           <Card variant="outlined" sx={{ p: 3, mb: 3, background: 'rgba(255, 255, 255, 0.8)' }}>
             <Typography variant="h6" gutterBottom sx={{ mb: 3, color: '#333', fontWeight: 600 }}>
@@ -248,21 +245,18 @@ function App() {
           </Button>
         </Box>
 
-        {/* Error Alert */}
         {error && (
           <Alert severity="error" sx={{ mb: 3 }} onClose={() => setError('')}>
             {error}
           </Alert>
         )}
 
-        {/* Success Alert */}
         {success && (
           <Alert severity="success" sx={{ mb: 3 }} onClose={() => setSuccess('')}>
             {success}
           </Alert>
         )}
 
-        {/* Result Card */}
         {result && (
           <Card variant="outlined" sx={{ 
             mb: 3, 
@@ -370,7 +364,6 @@ function App() {
           </Card>
         )}
 
-        {/* Analytics Modal */}
         {analytics && showAnalytics && (
           <Card variant="outlined">
             <CardContent>
@@ -453,7 +446,6 @@ function App() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      {/* App Bar with Navigation */}
       <AppBar position="static" elevation={2} sx={{ 
         background: 'linear-gradient(135deg, #1976d2 0%, #1565c0 100%)',
         boxShadow: '0 4px 20px rgba(25, 118, 210, 0.3)'
@@ -528,8 +520,7 @@ function App() {
           />
         </Tabs>
       </AppBar>
-
-      {/* Content */}
+            
       {activeTab === 0 ? renderUrlShortener() : <UrlsList />}
     </Box>
   );

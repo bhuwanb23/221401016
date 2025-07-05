@@ -119,7 +119,6 @@ function UrlsList() {
   return (
     <Container maxWidth="lg" sx={{ py: 4 }}>
       <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }}>
-        {/* Header */}
         <Box display="flex" justifyContent="space-between" alignItems="center" mb={4}>
           <Box>
             <Typography variant="h4" component="h1" gutterBottom>
@@ -138,21 +137,16 @@ function UrlsList() {
             Refresh
           </Button>
         </Box>
-
-        {/* Alerts */}
         {error && (
           <Alert severity="error" sx={{ mb: 3 }} onClose={() => setError('')}>
             {error}
           </Alert>
         )}
-
         {success && (
           <Alert severity="success" sx={{ mb: 3 }} onClose={() => setSuccess('')}>
             {success}
           </Alert>
         )}
-
-        {/* Stats Card */}
         <Card variant="outlined" sx={{ mb: 3 }} className="stats-card">
           <CardContent>
             <Grid container spacing={3}>
@@ -190,7 +184,6 @@ function UrlsList() {
           </CardContent>
         </Card>
 
-        {/* URLs Table */}
         {urls.length === 0 ? (
           <Card variant="outlined">
             <CardContent sx={{ textAlign: 'center', py: 8 }}>
@@ -315,8 +308,7 @@ function UrlsList() {
             </Table>
           </TableContainer>
         )}
-
-        {/* Analytics Modal */}
+      
         {analytics && showAnalytics && (
           <Card variant="outlined" sx={{ mt: 3 }}>
             <CardContent>
